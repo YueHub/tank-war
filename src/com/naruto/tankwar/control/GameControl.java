@@ -6,117 +6,117 @@ import com.naruto.tankwar.ui.PanelGame;
 public class GameControl {
 	
 	/**
-	 * ÓÎÏ·Âß¼­²ã
+	 * æ¸¸æˆé€»è¾‘å±‚
 	 */
 	private GameService gameservice;
 	
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 */
-	public GameControl(GameService gameservice,PanelGame panelgame){
+	public GameControl(GameService gameservice,PanelGame panelgame) {
 		this.gameservice = gameservice;
 	}
 	
 	/**
-	 * ÓÎÏ·¿ØÖÆÆ÷µ÷ÓÃÂß¼­²ãµÄÓÎÏ·¿ªÊ¼µÄ·½·¨
+	 * æ¸¸æˆæ§åˆ¶å™¨è°ƒç”¨é€»è¾‘å±‚çš„æ¸¸æˆå¼€å§‹çš„æ–¹æ³•
 	 */
 	public void startGame() {
 		this.gameservice.startGame();
 	}
 	
 	/**
-	 * ÓÎÏ·¿ØÖÆÆ÷µ÷ÓÃÂß¼­²ãµÄÏòÉÏÒÆ¶¯µÄ·½·¨
+	 * æ¸¸æˆæ§åˆ¶å™¨è°ƒç”¨é€»è¾‘å±‚çš„å‘ä¸Šç§»åŠ¨çš„æ–¹æ³•
 	 */
 	public void up() {
 		this.gameservice.up();
 	}
 	
 	/**
-	 * ÓÎÏ·¿ØÖÆÆ÷µ÷ÓÃÂß¼­²ãµÄÏòÏÂÒÆ¶¯µÄ·½·¨
+	 * æ¸¸æˆæ§åˆ¶å™¨è°ƒç”¨é€»è¾‘å±‚çš„å‘ä¸‹ç§»åŠ¨çš„æ–¹æ³•
 	 */
 	public void down() {
 		this.gameservice.down();
 	}
 
 	/**
-	 * ÓÎÏ·¿ØÖÆÆ÷µ÷ÓÃÂß¼­²ãµÄÏò×óÒÆ¶¯µÄ·½·¨
+	 * æ¸¸æˆæ§åˆ¶å™¨è°ƒç”¨é€»è¾‘å±‚çš„å‘å·¦ç§»åŠ¨çš„æ–¹æ³•
 	 */
 	public void left() {
 		this.gameservice.left();
 	}
 
 	/**
-	 * ÓÎÏ·¿ØÖÆÆ÷µ÷ÓÃÂß¼­²ãµÄÏòÓÒÒÆ¶¯µÄ·½·¨
+	 * æ¸¸æˆæ§åˆ¶å™¨è°ƒç”¨é€»è¾‘å±‚çš„å‘å³ç§»åŠ¨çš„æ–¹æ³•
 	 */
 	public void right() {
 		this.gameservice.right();
 	}
 
 	/**
-	 * ÓÎÏ·¿ØÖÆÆ÷µ÷ÓÃÂß¼­²ãµÄÌí¼ÓÌ¹¿ËµÄ·½·¨
+	 * æ¸¸æˆæ§åˆ¶å™¨è°ƒç”¨é€»è¾‘å±‚çš„æ·»åŠ å¦å…‹çš„æ–¹æ³•
 	 */
 	public void addTank() {
 		this.gameservice.addTank();
 	}
 	
 	/**
-	 * ÔİÊ±²âÊÔ
+	 * æš‚æ—¶æµ‹è¯•
 	 */
 	public void coolTime() {
 		this.gameservice.coolTime();
 	}
 	
 	/**
-	 * ÓÎÏ·¿ØÖÆÆ÷µ÷ÓÃÂß¼­²ãµÄ×÷±×µÄ·½·¨
+	 * æ¸¸æˆæ§åˆ¶å™¨è°ƒç”¨é€»è¾‘å±‚çš„ä½œå¼Šçš„æ–¹æ³•
 	 */
 	public void cheat() {
 		this.gameservice.cheat();
 	}
 
 	/**
-	 * ÓÎÏ·¿ØÖÆÆ÷µ÷ÓÃÂß¼­²ãµÄÓÎÏ·ÔİÍ£µÄ·½·¨
+	 * æ¸¸æˆæ§åˆ¶å™¨è°ƒç”¨é€»è¾‘å±‚çš„æ¸¸æˆæš‚åœçš„æ–¹æ³•
 	 */
 	public void pause() {
 		this.gameservice.pause();
 	}
 	
 	/**
-	 * ÓÎÏ·¿ØÖÆÆ÷µ÷ÓÃÂß¼­²ãµÄ¿ª»ğ·½Ê½Ò»µÄ·½·¨
+	 * æ¸¸æˆæ§åˆ¶å™¨è°ƒç”¨é€»è¾‘å±‚çš„å¼€ç«æ–¹å¼ä¸€çš„æ–¹æ³•
 	 */
 	public void fire_1() {
 		this.gameservice.fire_1();
 	}
 	
 	/**
-	 * ÓÎÏ·¿ØÖÆÆ÷µ÷ÓÃÂß¼­²ãµÄ¿ª»ğ·½Ê½¶şµÄ·½·¨
+	 * æ¸¸æˆæ§åˆ¶å™¨è°ƒç”¨é€»è¾‘å±‚çš„å¼€ç«æ–¹å¼äºŒçš„æ–¹æ³•
 	 */
 	public void fire_2() {
 		this.gameservice.fire_2();
 	}
 	
 	/**
-	 * ÓÎÏ·¿ØÖÆÆ÷µ÷ÓÃÂß¼­²ãµÄ¿ª»ğ·½Ê½ÈıµÄ·½·¨
+	 * æ¸¸æˆæ§åˆ¶å™¨è°ƒç”¨é€»è¾‘å±‚çš„å¼€ç«æ–¹å¼ä¸‰çš„æ–¹æ³•
 	 */
 	public void fire_3() {
 		this.gameservice.fire_3();
 	}
 	
 	/**
-	 * ÓÎÏ·¿ØÖÆÆ÷µ÷ÓÃÂß¼­²ãµÄ¿ª»ğ·½Ê½ËÄµÄ·½·¨
+	 * æ¸¸æˆæ§åˆ¶å™¨è°ƒç”¨é€»è¾‘å±‚çš„å¼€ç«æ–¹å¼å››çš„æ–¹æ³•
 	 */
 	public void buryMine() {
 		this.gameservice.buryMine();
 	}
 	
 	/**
-	 * ÓÎÏ·¿ØÖÆÆ÷µ÷ÓÃÂß¼­²ãµÄ¹Ø±ÕÑª²ÛµÄ·½·¨
+	 * æ¸¸æˆæ§åˆ¶å™¨è°ƒç”¨é€»è¾‘å±‚çš„å…³é—­è¡€æ§½çš„æ–¹æ³•
 	 */
 	public void closeExp() {
 		this.gameservice.closeExp();
 	}
 
 	/**
-	 * Ìø¹Ø¿¨
+	 * è·³å…³å¡
 	 */
 	public void jumpOff() {
 		this.gameservice.jumpOff();

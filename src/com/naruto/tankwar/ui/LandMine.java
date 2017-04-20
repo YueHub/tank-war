@@ -9,74 +9,73 @@ import com.naruto.tankwar.img.Img;
 public class LandMine {
 	
 	/**
-	 * ÓÎÏ·Êı¾İ´«Êä²ã
+	 * æ¸¸æˆæ•°æ®ä¼ è¾“å±‚
 	 */
 	private GameDto dto;
 	
 	/**
-	 * µØÀ×µÄ¿í¶È
+	 * åœ°é›·çš„å®½åº¦
 	 */
 	private int landMine_W = Img.landmine.getWidth(null);
 	
 	/**
-	 * µØÀ×µÄ¸ß¶È
+	 * åœ°é›·çš„é«˜åº¦
 	 */
 	private int landMine_H = Img.landmine.getHeight(null);
 	
 	/**
-	 * µØÀ×µÄX×ø±ê
+	 * åœ°é›·çš„Xåæ ‡
 	 */
 	private int landMineX;
 	
 	/**
-	 * µØÀ×µÄY×ø±ê
+	 * åœ°é›·çš„Yåæ ‡
 	 */
 	private int landMineY;
 	
 	/**
-	 * µØÀ×ÊÇ·ñ´İ»Ù
+	 * åœ°é›·æ˜¯å¦æ‘§æ¯
 	 */
 	private boolean landMineDestroy =  false;
 
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 */
-	public LandMine(int landMineX , int landMineY,GameDto dto){
+	public LandMine(int landMineX , int landMineY,GameDto dto) {
 		this.landMineX = landMineX;
 		this.landMineY = landMineY;
 		this.dto = dto;
 	}
 	
 	/**
-	 * µÃµ½µØÀ×ÊÇ·ñÒÑ¾­´İ»Ù
+	 * å¾—åˆ°åœ°é›·æ˜¯å¦å·²ç»æ‘§æ¯
 	 */
 	public boolean isLandMineDestroy() {
 		return landMineDestroy;
 	}
 	
 	/**
-	 * ÉèÖÃµØÀ×ÊÇ·ñ±»´İ»Ù
+	 * è®¾ç½®åœ°é›·æ˜¯å¦è¢«æ‘§æ¯
 	 */
 	public void setLandMineDestroy(boolean landMineDestroy) {
 		this.landMineDestroy = landMineDestroy;
 	}
 	
 	/**
-	 * Åö×²¼ì²â
+	 * ç¢°æ’æ£€æµ‹
 	 */
-	public Rectangle getRect(){
+	public Rectangle getRect() {
 		return new Rectangle(landMineX,landMineY,landMine_W,landMine_H);
 	}
 
 	/**
-	 * »æÖÆµØÀ×
+	 * ç»˜åˆ¶åœ°é›·
 	 */
-	public void drawLandMine(Graphics g){
-		if(this.landMineDestroy){
+	public void drawLandMine(Graphics g) {
+		if (this.landMineDestroy) {
 			this.dto.getLandmines().remove(this);
 			return ;
 		}
 		g.drawImage(Img.landmine, landMineX,landMineY,null);
 	}
-	
 }

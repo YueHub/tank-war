@@ -6,86 +6,86 @@ import javax.swing.ImageIcon;
 public class Img {
 	
 	/**
-	 * ����ͼƬ
+	 * 背景图片
 	 */
 	public static Image background = new ImageIcon("skin/background/background0"+".png").getImage();
 	
 	/**
-	 * ǽ��ͼƬ
+	 * 墙体图片
 	 */
 	public static Image[] WALL ; 
-	static{
+	static {
 		WALL = new Image[12];
-		for(int i = 0;i<WALL.length;i++ ){
-		WALL[i] = new ImageIcon("skin/walls/wall0/"+i+".png").getImage();
+		for (int i = 0;i < WALL.length;i++ ) {
+			WALL[i] = new ImageIcon("skin/walls/wall0/"+i+".png").getImage();
 		}
 	}
 	
 	/**
-	 * ̹��ͼƬ
+	 * 坦克图片
 	 */
 	public static Image[][] TANK;
 	static {
 		TANK = new Image[3][4];
-		for(int i = 0;i<3;i++){
-			for(int j =0;j<4;j++){
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 4; j++) {
 				TANK[i][j] = new ImageIcon("skin/tank01/tank"+i+"/"+j+".png").getImage();
 			}
 		}
 	}
 	
 	/**
-	 * �ڵ���ͼƬ
+	 * 炮弹的图片
 	 */
 	public static Image[] BULLET;
 	static {
 		BULLET = new Image[4];
-		for(int i = 0;i<BULLET.length;i++){
-			BULLET[i] =new ImageIcon("skin/bullet/"+i+".png").getImage();
+		for (int i = 0; i < BULLET.length; i++) {
+			BULLET[i] = new ImageIcon("skin/bullet/"+i+".png").getImage();
 		}
 	}
 	
 	/**
-	 *��ը��ͼƬ 
+	 *爆炸的图片 
 	 */
 	public static Image[][] BOOM;
 	static {
 			BOOM = new Image[4][18];
-			for(int i=0;i<4;i++){
-				for(int j =0 ;j<17;j++){
+			for (int i = 0; i < 4; i++) {
+				for (int j = 0; j < 17; j++) {
 					BOOM[i][j] = new ImageIcon("skin/booms/boom"+i+"/"+j+".png").getImage();
 				}
 			}
 	}
 	
 	/**
-	 * ���׵�ͼƬ
+	 * 地雷的图片
 	 */
 	public static Image landmine = new ImageIcon("skin/landmine/landmine.png").getImage();
 	
 	/**
-	 * boss��ͼƬ
+	 * boss的图片
 	 */
 	public static Image boss = new ImageIcon("skin/boss/boss.png").getImage();
 	
 	
 	/**
-	 * Ѫ�ۿ�ͼƬ	
+	 * 血槽框图片	
 	 */
 	public static Image rectframe = new ImageIcon("skin/tank/rectframe.png").getImage();
 	
 	/**
-	 * Ѫ�۵�ͼƬ
+	 * 血槽的图片
 	 */
 	public static Image rect = new ImageIcon("skin/tank/rect.png").getImage();
 	
 	/**
-	 * ��ͣͼƬ
+	 * 暂停图片
 	 */
 	public static Image pause = new ImageIcon("skin/other/pause.png").getImage();
 	
 	/**
-	 * ��ȴͼƬ
+	 * 冷却图片
 	 */
 	public static Image cooltime = new ImageIcon("skin/other/cooltime.png").getImage();
 	

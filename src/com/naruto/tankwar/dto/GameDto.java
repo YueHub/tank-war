@@ -8,262 +8,262 @@ import com.naruto.tankwar.ui.Map;
 import com.naruto.tankwar.ui.Tank;
 import com.naruto.tankwar.ui.Wall;
 
-public class GameDto {
+public class GameDto  {
 	
 	/**
-	 * panelgameµÄ¿í¶È
+	 * panelgameçš„å®½åº¦
 	 */
 	public static int panelGame_W;
 	
 	/**
-	 * panelgameµÄ¸ß¶È
+	 * panelgameçš„é«˜åº¦
 	 */
 	public static int panelGame_H;
 
 	/**
-	 * Íæ¼ÒÌ¹¿Ë
+	 * ç©å®¶å¦å…‹
 	 */
 	private Tank mytank;
 
 	/**
-	 * µçÄÔÌ¹¿Ë¼¯ºÏ
+	 * ç”µè„‘å¦å…‹é›†åˆ
 	 */
 	private ArrayList<Tank> tanks;
 
 	/**
-	 * ÅÚµ¯¼¯ºÏ
+	 * ç‚®å¼¹é›†åˆ
 	 */
 	private ArrayList<Bullet> bullet;
 	
 	/**
-	 * µØÀ×¼¯ºÏ
+	 * åœ°é›·é›†åˆ
 	 */
 	private ArrayList<LandMine> landmines;
 	
 	/**
-	 * Ç½±Ú
+	 * å¢™å£
 	 */
 	private ArrayList<Wall> walls;
 	
 	/**
-	 * ±¬Õ¨
+	 * çˆ†ç‚¸
 	 */
 	private Boom boom;
 	
 	/**
-	 * ´æ´¢µØÍ¼µÄ¶şÎ¬Êı×é£¨Êµ¼Ê´æµÄÊÇµØÍ¼Ã¿ÕÅÍ¼Æ¬µÄid£©
+	 * å­˜å‚¨åœ°å›¾çš„äºŒç»´æ•°ç»„ï¼ˆå®é™…å­˜çš„æ˜¯åœ°å›¾æ¯å¼ å›¾ç‰‡çš„idï¼‰
 	 */
 	private int[][] numMap ;
 		
 	/**
-	 * ÓÎÏ·µØÍ¼
+	 * æ¸¸æˆåœ°å›¾
 	 */
 	private Map map ;
 
 	/**
-	 * ÊÇ·ñÊÇÔİÍ£×´Ì¬
+	 * æ˜¯å¦æ˜¯æš‚åœçŠ¶æ€
 	 */
 	private boolean pause = false;
 
 	/**
-	 * ÊÇ·ñÊÇÀäÈ´Ê±¼ä
+	 * æ˜¯å¦æ˜¯å†·å´æ—¶é—´
 	 */
 	private boolean coolTime = false;
 	
 	/**
-	 * ÊÇ·ñ¹Ø±ÕÑª²Û
+	 * æ˜¯å¦å…³é—­è¡€æ§½
 	 */
 	private boolean closeExp = false;
 	
 	/**
-	 * ÓÎÏ·ÊÇ·ñ¿ªÊ¼
+	 * æ¸¸æˆæ˜¯å¦å¼€å§‹
 	 */
 	private boolean startGame = false;
 
 	/**
-	 * ¿ª»ğµÄIDºÅ
+	 * å¼€ç«çš„IDå·
 	 */
 	private int fireID = 0; 
 	
 	/**
-	 * Ì¹¿ËÄ¿Ç°µÄµÈ¼¶
+	 * å¦å…‹ç›®å‰çš„ç­‰çº§
 	 */
 	private int level;
 
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 */
-	public GameDto(){
+	public GameDto() {
 		this.initDto();
 		boom = new Boom(0,0,this);
 	}
 	
 	/**
-	 * ³õÊ¼»¯GameDto
+	 * åˆå§‹åŒ–GameDto
 	 */
-	public void initDto(){
-		//´´½¨´æ·Å»úÆ÷ÈËÌ¹¿ËµÄ¼¯ºÏ¶ÔÏó
+	public void initDto() {
+		//åˆ›å»ºå­˜æ”¾æœºå™¨äººå¦å…‹çš„é›†åˆå¯¹è±¡
 		this.tanks = new ArrayList<Tank>();
-		//´´½¨´æ·ÅÅÚµ¯µÄ¼¯ºÏ¶ÔÏó
+		//åˆ›å»ºå­˜æ”¾ç‚®å¼¹çš„é›†åˆå¯¹è±¡
 		this.bullet = new ArrayList<Bullet>();
-		//´´½¨´æ·ÅµØÀ×µÄ¼¯ºÏ¶ÔÏó
+		//åˆ›å»ºå­˜æ”¾åœ°é›·çš„é›†åˆå¯¹è±¡
 		this.landmines = new ArrayList<LandMine>();
-		//´´Ôì´æ·ÅÇ½±ÚµÄ¼¯ºÏ¶ÔÏó
+		//åˆ›é€ å­˜æ”¾å¢™å£çš„é›†åˆå¯¹è±¡
 		this.walls = new ArrayList<Wall>();
-		//´´½¨Íæ¼ÒÌ¹¿Ë¶ÔÏó
+		//åˆ›å»ºç©å®¶å¦å…‹å¯¹è±¡
 		mytank = new Tank(this,true,false,600,200,Tank.Direction.STOP);
-		//´´ÔìÊı×ÖµØÍ¼
+		//åˆ›é€ æ•°å­—åœ°å›¾
 		numMap = new int[11][20];
 	}
 	
 	/**
-	 * µÃµ½ÓÎÏ·ÊÇ·ñ¿ªÊ¼
+	 * å¾—åˆ°æ¸¸æˆæ˜¯å¦å¼€å§‹
 	 */
 	public boolean isStartGame() {
 		return startGame;
 	}
 
 	/**
-	 * ÉèÖÃÓÎÏ·ÊÇ·ñ¿ªÊ¼
+	 * è®¾ç½®æ¸¸æˆæ˜¯å¦å¼€å§‹
 	 */
 	public void setStartGame(boolean startGame) {
 		this.startGame = startGame;
 	}
 	
 	/**
-	 *µÃµ½Íæ¼ÒÌ¹¿Ë 
+	 *å¾—åˆ°ç©å®¶å¦å…‹ 
 	 */
-	public Tank getTank(){
+	public Tank getTank() {
 		return mytank;
 	}
 	
 	/**
-	 * ÉèÖÃÍæ¼ÒÌ¹¿Ë
+	 * è®¾ç½®ç©å®¶å¦å…‹
 	 */
-	public void setTank(Tank mytank){
+	public void setTank(Tank mytank) {
 		this.mytank = mytank;
 	}
 	
 	/**
-	 * µÃµ½»úÆ÷ÈËÌ¹¿Ë¼¯ºÏ
+	 * å¾—åˆ°æœºå™¨äººå¦å…‹é›†åˆ
 	 */
-	public ArrayList<Tank> getTanks(){
+	public ArrayList<Tank> getTanks() {
 		return tanks;
 	}
 	
 	/**
-	 * µÃµ½ÅÚµ¯¼¯ºÏ
+	 * å¾—åˆ°ç‚®å¼¹é›†åˆ
 	 */
-	public ArrayList<Bullet> getBullet(){
+	public ArrayList<Bullet> getBullet() {
 		return bullet;
 	}
 	
 	/**
-	 * µÃµ½µØÀ×¼¯ºÏ
+	 * å¾—åˆ°åœ°é›·é›†åˆ
 	 */
 	public ArrayList<LandMine> getLandmines() {
 		return landmines;
 	}
 	
 	/**
-	 * µÃµ½±¬Õ¨
+	 * å¾—åˆ°çˆ†ç‚¸
 	 */
-	public Boom getBoom(){
+	public Boom getBoom() {
 		return boom;
 	}
 	
 	/**
-	 * µÃµ½Ç½±Ú¼¯ºÏ
+	 * å¾—åˆ°å¢™å£é›†åˆ
 	 */
 	public ArrayList<Wall> getWalls() {
 		return walls;
 	}
 	
 	/**
-	 * µÃµ½µØÍ¼¶şÎ¬Êı×é
+	 * å¾—åˆ°åœ°å›¾äºŒç»´æ•°ç»„
 	 */
-	public int[][] getNumMap(){
+	public int[][] getNumMap() {
 		return numMap;
 	}
 	/**
-	 * ÉèÖÃÓÎÏ·µØÍ¼
+	 * è®¾ç½®æ¸¸æˆåœ°å›¾
 	 */
 	public void setMap(Map map) {
 		this.map = map;
 	}
 	
 	/**
-	 * µÃµ½ÓÎÏ·µØÍ¼
+	 * å¾—åˆ°æ¸¸æˆåœ°å›¾
 	 */
-	public Map getMap(){
+	public Map getMap() {
 		return map;
 	}
 	
 	/**
-	 * µÃµ½ÊÇ·ñÔİÍ£
+	 * å¾—åˆ°æ˜¯å¦æš‚åœ
 	 */
 	public boolean isPause() {
 		return pause;
 	}
 	
 	/**
-	 * ÉèÖÃÊÇ·ñÔİÍ£
+	 * è®¾ç½®æ˜¯å¦æš‚åœ
 	 */
 	public void setPause(boolean pause) {
 		this.pause = pause;
 	}
 	
 	/**
-	 * µÃµ½ÊÇ·ñÊÇÀäÈ´Ê±¼ä
+	 * å¾—åˆ°æ˜¯å¦æ˜¯å†·å´æ—¶é—´
 	 */
 	public boolean isCoolTime() {
 		return coolTime;
 	}
 	
 	/**
-	 * ÉèÖÃÀäÈ´Ê±¼ä
+	 * è®¾ç½®å†·å´æ—¶é—´
 	 */
 	public void setCoolTime(boolean coolTime) {
 		this.coolTime = coolTime;
 	}
 	
 	/**
-	 * µÃµ½ÊÇ·ñ»æÖÆÑª²Û
+	 * å¾—åˆ°æ˜¯å¦ç»˜åˆ¶è¡€æ§½
 	 */
 	public boolean isCloseExp() {
 		return closeExp;
 	}
 	
 	/**
-	 * ÉèÖÃÊÇ·ñ»æÖÆÑª²Û
+	 * è®¾ç½®æ˜¯å¦ç»˜åˆ¶è¡€æ§½
 	 */
 	public void setCloseExp(boolean closeExp) {
 		this.closeExp = closeExp;
 	}
 	
 	/**
-	 * µÃµ½¿ª»ğ·½Ê½µÄID
+	 * å¾—åˆ°å¼€ç«æ–¹å¼çš„ID
 	 */
 	public int getFireID() {
 		return fireID;
 	}
 	
 	/**
-	 * ÉèÖÃ¿ª»ğ·½Ê½µÄID
+	 * è®¾ç½®å¼€ç«æ–¹å¼çš„ID
 	 */
 	public void setFireID(int fireID) {
 		this.fireID = fireID;
 	}
 	
 	/**
-	 * µÃµ½Ì¹¿ËÄ¿Ç°µÄµÈ¼¶
+	 * å¾—åˆ°å¦å…‹ç›®å‰çš„ç­‰çº§
 	 */
 	public int getLevel() {
 		return level;
 	}
 	
 	/**
-	 * ÉèÖÃÌ¹¿ËÄ¿Ç°µÄµÈ¼¶
+	 * è®¾ç½®å¦å…‹ç›®å‰çš„ç­‰çº§
 	 */
 	public void setLevel(int level) {
 		this.level = level;

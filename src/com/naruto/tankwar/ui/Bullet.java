@@ -9,69 +9,69 @@ import com.naruto.tankwar.img.Img;
 public class Bullet {
 	
 	/**
-	 * ÓÎÏ·Êı¾İ´«Êä²ã
+	 * æ¸¸æˆæ•°æ®ä¼ è¾“å±‚
 	 */
 	private GameDto dto;
 		
 	/**
-	 * ÅÚµ¯ÊÇ·ñ´İ»Ù
+	 * ç‚®å¼¹æ˜¯å¦æ‘§æ¯
 	 */
 	private boolean bulletDestroy = false;
 	
 	/**
-	 * ÅÚµ¯µÄX×ø±ê
+	 * ç‚®å¼¹çš„Xåæ ‡
 	 */
 	private int bulletX;
 	
 	/**
-	 * ÅÚµ¯µÄY×ø±ê
+	 * ç‚®å¼¹çš„Yåæ ‡
 	 */
 	private int bulletY;
 	
 	/**
-	 * ·½ÏòÃ¶¾Ù
+	 * æ–¹å‘æšä¸¾
 	 */
 	Tank.Direction dir;
 	
 	/**
-	 * ÊÇÍæ¼ÒµÄ»¹ÊÇ»úÆ÷ÈËµÄbullet
+	 * æ˜¯ç©å®¶çš„è¿˜æ˜¯æœºå™¨äººçš„bullet
 	 */
 	private boolean playerb;
 	
 	/**
-	 * ÊÇ²»ÊÇbossµÄbullet
+	 * æ˜¯ä¸æ˜¯bossçš„bullet
 	 */
 	private boolean bossb;
 	
 	/**
-	 * ¿ª»ğ·½Ê½µÄID
+	 * å¼€ç«æ–¹å¼çš„ID
 	 */
 	private int fireID;
 	
 	/**
-	 * ÅÚµ¯µÄ¿í¶È
+	 * ç‚®å¼¹çš„å®½åº¦
 	 */
 	public static int BULLET_W ;
 	
 	/**
-	 * ÅÚµ¯µÄ¸ß¶È
+	 * ç‚®å¼¹çš„é«˜åº¦
 	 */
 	public static int BULLET_H ;
 	
 	/**
-	 * ÅÚµ¯X·½ÏòÒÆ¶¯µÄËÙ¶È
+	 * ç‚®å¼¹Xæ–¹å‘ç§»åŠ¨çš„é€Ÿåº¦
 	 */
 	private static final int XSPEED = 30;
 	
 	/**
-	 * ÅÚµ¯Y·½ÏòÒÆ¶¯µÄËÙ¶È
+	 * ç‚®å¼¹Yæ–¹å‘ç§»åŠ¨çš„é€Ÿåº¦
 	 */
 	private static final int YSPEED = 30;
 	
 	/**
-	 * ¹¹Ôì·½·¨ 
+	 * æ„é€ æ–¹æ³• 
 	 */
-	public Bullet(int bulletX,int bulletY,GameDto dto,Tank.Direction dir,boolean playerb,boolean bossb){
+	public Bullet(int bulletX,int bulletY,GameDto dto,Tank.Direction dir,boolean playerb,boolean bossb) {
 		this.bulletX = bulletX;
 		this.bulletY = bulletY;
 		this.dto = dto;
@@ -82,88 +82,88 @@ public class Bullet {
 	}
 	
 	/**
-	 * ³õÊ¼»¯ÅÚµ¯
+	 * åˆå§‹åŒ–ç‚®å¼¹
 	 */
-	public void initBullet(){
-		//µÃµ½ÅÚµ¯µÄID
+	public void initBullet() {
+		//å¾—åˆ°ç‚®å¼¹çš„ID
 		fireID = this.dto.getFireID();
-		//µÃµ½´ËÊ±ÅÚµ¯µÄ³¤ºÍ¿í
+		//å¾—åˆ°æ­¤æ—¶ç‚®å¼¹çš„é•¿å’Œå®½
 		BULLET_W = Img.BULLET[fireID].getWidth(null);
 		BULLET_H = Img.BULLET[fireID].getHeight(null);
 	}
 	
 	/**
-	 * ÉèÖÃÅÚµ¯ÊÇ·ñÎªÍæ¼ÒµÄÅÚµ¯
+	 * è®¾ç½®ç‚®å¼¹æ˜¯å¦ä¸ºç©å®¶çš„ç‚®å¼¹
 	 */
-	public void setPlayerb(boolean playerb){
+	public void setPlayerb(boolean playerb) {
 		this.playerb = playerb;
 	}
 	
 	/**
-	 * ·µ»ØÅÚµ¯µÄX×ø±ê
+	 * è¿”å›ç‚®å¼¹çš„Xåæ ‡
 	 */
 	public int getBulletX() {
 		return bulletX;
 	}
 
 	/**
-	 * ÉèÖÃÅÚµ¯µÄX×ø±ê
+	 * è®¾ç½®ç‚®å¼¹çš„Xåæ ‡
 	 */
 	public void setBulletX(int bulletX) {
 		this.bulletX = bulletX;
 	}
 	
 	/**
-	 * ·µ»ØÅÚµ¯µÄY×ø±ê
+	 * è¿”å›ç‚®å¼¹çš„Yåæ ‡
 	 */
 	public int getBulletY() {
 		return bulletY;
 	}
 
 	/**
-	 * ÉèÖÃÅÚµ¯µÄY×ø±ê
+	 * è®¾ç½®ç‚®å¼¹çš„Yåæ ‡
 	 */
 	public void setBulletY(int bulletY) {
 		this.bulletY = bulletY;
 	}
 	
 	/**
-	 * µÃµ½ÅÚµ¯ÊÇ·ñ»¹´æÔÚ
+	 * å¾—åˆ°ç‚®å¼¹æ˜¯å¦è¿˜å­˜åœ¨
 	 */
-	public boolean isbulletDestroy(){
+	public boolean isbulletDestroy() {
 		return bulletDestroy;
 	}
 	
 	/**
-	 * µÃµ½µÄÅÚµ¯µÄ¾ØĞÎ£¨ÓÃÓÚÅö×²¼ì²â£© 
+	 * å¾—åˆ°çš„ç‚®å¼¹çš„çŸ©å½¢ï¼ˆç”¨äºç¢°æ’æ£€æµ‹ï¼‰ 
 	 */
-	public Rectangle getRect(){
+	public Rectangle getRect() {
 		return new Rectangle(bulletX,bulletY,BULLET_W,BULLET_H);
 	}
 	
 	/**
-	 * ×Óµ¯´òµ½ÁËÌ¹¿ËÉÏ
+	 * å­å¼¹æ‰“åˆ°äº†å¦å…‹ä¸Š
 	 */
-	public boolean hitTank(Tank tank){
-		if(this.getRect().intersects(tank.getRect())&&!this.isbulletDestroy()&&tank.isPlayer()!=this.playerb){
-			//´«Èë±¬Õ¨µãµÄX×ø±ê
+	public boolean hitTank(Tank tank) {
+		if (this.getRect().intersects(tank.getRect()) && !this.isbulletDestroy() && tank.isPlayer() != this.playerb) {
+			//ä¼ å…¥çˆ†ç‚¸ç‚¹çš„Xåæ ‡
 			this.dto.getBoom().setBoomX(tank.getTankX());
-			//´«Èë±¬Õ¨µãµÄY×ø±ê
+			//ä¼ å…¥çˆ†ç‚¸ç‚¹çš„Yåæ ‡
 			this.dto.getBoom().setBoomY(tank.getTankY());
-			//ÉèÖÃÅÚµ¯Îª´İ»Ù×´Ì¬
+			//è®¾ç½®ç‚®å¼¹ä¸ºæ‘§æ¯çŠ¶æ€
 			this.bulletDestroy = true;
-			//ÉèÖÃ±¬Õ¨ÎªĞèÒª
+			//è®¾ç½®çˆ†ç‚¸ä¸ºéœ€è¦
 			this.dto.getBoom().setLive(true);
-			//Ì¹¿ËµôÑª
+			//å¦å…‹æ‰è¡€
 			tank.reduceExp();
-			//Èç¹ûÌ¹¿ËÑªÁ¿Ğ¡ÓÚ0  Ì¹¿ËµÄÉúÃüÊı¼õÒ»  
-			if(tank.getExp()<=0){
+			//å¦‚æœå¦å…‹è¡€é‡å°äº0  å¦å…‹çš„ç”Ÿå‘½æ•°å‡ä¸€  
+			if (tank.getExp() <= 0 ) {
 				tank.setLife(tank.getLife()-1);
 				tank.setTankX(400);
 				tank.setTankY(600);
 				tank.setExp(100);
 			}
-			if(tank.getLife()==0){	
+			if (tank.getLife() == 0) {	
 				tank.setTankDestroy(true);
 				this.dto.getTanks().remove(tank);
 			}
@@ -173,11 +173,11 @@ public class Bullet {
 	}
 	
 	/**
-	 * ÅÚµ¯´òµ½ÁËÌ¹¿Ë¼¯ºÏÉÏ
+	 * ç‚®å¼¹æ‰“åˆ°äº†å¦å…‹é›†åˆä¸Š
 	 */
-	public boolean hitTanks(ArrayList<Tank> tanks){
-		for(int i = 0;i<tanks.size();i++){
-			if(this.hitTank(tanks.get(i))){
+	public boolean hitTanks(ArrayList<Tank> tanks) {
+		for (int i = 0; i < tanks.size(); i++) {
+			if (this.hitTank(tanks.get(i))) {
 				return true ;
 			}
 		}
@@ -185,11 +185,11 @@ public class Bullet {
 	}
 	
 	/**
-	 * ÅÚµ¯´òµ½Ò»¸öÇ½±ÚÉÏ£¨ÓÃÓÚÏÂÃæµÄµ÷ÓÃ£©
+	 * ç‚®å¼¹æ‰“åˆ°ä¸€ä¸ªå¢™å£ä¸Šï¼ˆç”¨äºä¸‹é¢çš„è°ƒç”¨ï¼‰
 	 */
-	public boolean hitWall(Wall wall){
-		if(this.getRect().intersects(wall.getRect())){
-			//Ç½±ÚµôÑª
+	public boolean hitWall(Wall wall) {
+		if (this.getRect().intersects(wall.getRect())) {
+			//å¢™å£æ‰è¡€
 			wall.reduceExp();
 			this.bulletDestroy = true;
 			return true;
@@ -198,11 +198,11 @@ public class Bullet {
 	}
 	
 	/**
-	 * ÅÚµ¯´òµ½ÁËÇ½±ÚÉÏ
+	 * ç‚®å¼¹æ‰“åˆ°äº†å¢™å£ä¸Š
 	 */
-	public boolean hitWalls(ArrayList<Wall> walls){
-		for(int i = 0;i<walls.size();i++){
-			if(this.hitWall(walls.get(i))){
+	public boolean hitWalls(ArrayList<Wall> walls) {
+		for(int i = 0; i < walls.size(); i++) {
+			if(this.hitWall(walls.get(i))) {
 				return true;
 			}
 		}	
@@ -210,10 +210,10 @@ public class Bullet {
 	}
 	
 	/**
-	 * ÒÆ¶¯ÅÚµ¯µÄ·½·¨£¨²Î¿¼ÓÚÂíÊ¿±ø£©
+	 * ç§»åŠ¨ç‚®å¼¹çš„æ–¹æ³•ï¼ˆå‚è€ƒäºé©¬å£«å…µï¼‰
 	 */
 	public void moveBullet() {
-		if(this.dto.isPause()){
+		if (this.dto.isPause()) {
 			return;
 		}
 		switch(dir) {
@@ -232,38 +232,34 @@ public class Bullet {
 		case STOP:
 			break;
 		}
-		//Ôö¼Ó100 ÒÔÃâ´óÅÚµ¯ÔÚ±ß½çÎŞ·¨·¢Éä
-		if(bulletX < -100 || bulletY < -100 || bulletX > 1300 || bulletY > 800) {
+		//å¢åŠ 100 ä»¥å…å¤§ç‚®å¼¹åœ¨è¾¹ç•Œæ— æ³•å‘å°„
+		if (bulletX < -100 || bulletY < -100 || bulletX > 1300 || bulletY > 800) {
 			bulletDestroy = true;
 		}
 		
 }
 	
 	/**
-	 *»æÖÆÅÚµ¯ 
+	 *ç»˜åˆ¶ç‚®å¼¹ 
 	 */
-	public void drawBullet(Graphics g){
-		//Èç¹ûÅÚµ¯ÒÑ¾­´İ»ÙÄÇ¾Í²»»æÖÆ
-		if(bulletDestroy){
+	public void drawBullet(Graphics g) {
+		//å¦‚æœç‚®å¼¹å·²ç»æ‘§æ¯é‚£å°±ä¸ç»˜åˆ¶
+		if (bulletDestroy) {
 			this.dto.getBullet().remove(this);
 			return;
 		}
-		//Èç¹ûÊÇÍæ¼ÒÅÚµ¯ÄÇÃ´¾Í¿ÉÒÔÓĞ¸÷ÖÖÅÚµ¯
-		if(this.playerb){
+		//å¦‚æœæ˜¯ç©å®¶ç‚®å¼¹é‚£ä¹ˆå°±å¯ä»¥æœ‰å„ç§ç‚®å¼¹
+		if (this.playerb) {
 			g.drawImage(Img.BULLET[fireID],bulletX,bulletY,null);
 		}
-		//Èç¹ûÊÇbossµÄÅÚµ¯  ÔòÓĞ×îºóÒ»ÖÖÅÚ»÷
-		if(this.bossb){
+		//å¦‚æœæ˜¯bossçš„ç‚®å¼¹  åˆ™æœ‰æœ€åä¸€ç§ç‚®å‡»
+		if (this.bossb) {
 			g.drawImage(Img.BULLET[3],bulletX,bulletY,null);
 		}
-		//Èç¹ûÊÇÆÕÍ¨»úÆ÷ÈËµÄÅÚµ¯   ÔòÖ»ÄÜÓĞµÚÒ»ÖÖÅÚµ¯
-		if(!this.playerb&&!this.bossb)
-		{
+		//å¦‚æœæ˜¯æ™®é€šæœºå™¨äººçš„ç‚®å¼¹   åˆ™åªèƒ½æœ‰ç¬¬ä¸€ç§ç‚®å¼¹
+		if (!this.playerb&&!this.bossb) {
 			g.drawImage(Img.BULLET[0],bulletX,bulletY,null);
 		}
-		
 		moveBullet();
 	}
-	
-	
 }

@@ -12,38 +12,38 @@ import com.naruto.tankwar.img.Img;
 public class Map {
 	
 	/**
-	 * ÓÎÏ·Êı¾İ´«Êä²ã
+	 * æ¸¸æˆæ•°æ®ä¼ è¾“å±‚
 	 */
 	private GameDto dto;
 
 	/**
-	 * ÊäÈëÁ÷
+	 * è¾“å…¥æµ
 	 */
 	FileReader fr = null;	
 	
 	/**
-	 * ÊäÈë°ü×°Á÷
+	 * è¾“å…¥åŒ…è£…æµ
 	 */
 	BufferedReader br = null;
 	
 	/**
-	 * Íæ¼ÒÏÖÔÚµÄµÈ¼¶
+	 * ç©å®¶ç°åœ¨çš„ç­‰çº§
 	 */
 	public static int level;
 	
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 */
-	public Map(GameDto dto){
+	public Map(GameDto dto) {
 		this.dto = dto;
 	}
 	
 	
 	
 	/**
-	 * ¶ÁÈë´æÓĞµØÍ¼ĞÅÏ¢µÄÎÄ¼ş£¨¶şÎ¬intĞÍÊı×é£©PS£º½è¼øÓÚjava°ÉÍÆÏä×ÓÓÎÏ·
+	 * è¯»å…¥å­˜æœ‰åœ°å›¾ä¿¡æ¯çš„æ–‡ä»¶ï¼ˆäºŒç»´intå‹æ•°ç»„ï¼‰PSï¼šå€Ÿé‰´äºjavaå§æ¨ç®±å­æ¸¸æˆ
 	 */
-	public void readMap(){		
+	public void readMap() {		
 		String filepath = "maps/" + level + ".map";
 		File file = new File(filepath);	
 		try {
@@ -81,28 +81,28 @@ public class Map {
 	}
 	
 	/**
-	 * É¾³ıÔ­À´µÄµØÍ¼
+	 * åˆ é™¤åŸæ¥çš„åœ°å›¾
 	 */
-	public void removeMap(){
-		//ÉèÖÃËùÓĞÇ½±ÚÑªÁ¿Îª0  É¾³ıËùÓĞÇ½±Ú£¨¼´É¾³ıµØÍ¼£©
+	public void removeMap() {
+		//è®¾ç½®æ‰€æœ‰å¢™å£è¡€é‡ä¸º0  åˆ é™¤æ‰€æœ‰å¢™å£ï¼ˆå³åˆ é™¤åœ°å›¾ï¼‰
 		for (int i = 0; i < this.dto.getWalls().size(); i++) {
 				this.dto.getWalls().get(i).setExp(0);
 		}
 	}
 	
 	/**
-	 * ´´½¨µØÍ¼
+	 * åˆ›å»ºåœ°å›¾
 	 */
-	public void creatMap(){
-		//µÃµ½µ±Ç°µÄÌ¹¿ËµÈ¼¶
+	public void creatMap() {
+		//å¾—åˆ°å½“å‰çš„å¦å…‹ç­‰çº§
 		level = this.dto.getLevel();
-		//¸ù¾İµÈ¼¶¸ü»»Ç½±ÚÍ¼Æ¬
-		for(int i = 0;i<Img.WALL.length;i++ ) {
+		//æ ¹æ®ç­‰çº§æ›´æ¢å¢™å£å›¾ç‰‡
+		for (int i = 0;i<Img.WALL.length;i++ ) {
 			Img.WALL[i] = new ImageIcon("skin/walls/wall"+level+"/"+i+".png").getImage();
 		}
-		//¶ÁÈëµØÍ¼ÎÄ¼ş
+		//è¯»å…¥åœ°å›¾æ–‡ä»¶
 		this.readMap();
-		//¸ù¾İµØÍ¼ÎÄ¼şÌí¼ÓÇ½±Ú£¨¼´´´ÔìµØÍ¼£©
+		//æ ¹æ®åœ°å›¾æ–‡ä»¶æ·»åŠ å¢™å£ï¼ˆå³åˆ›é€ åœ°å›¾ï¼‰
 		for (int i = 0; i < 11; i++) {
 			for (int j = 0; j < 20; j++) {
 				int wallID = this.dto.getNumMap()[i][j];

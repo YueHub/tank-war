@@ -7,85 +7,85 @@ import com.naruto.tankwar.img.Img;
 public class Boom {
 	
 	/**
-	 * Êı¾İ´«Êä²ã
+	 * æ•°æ®ä¼ è¾“å±‚
 	 */
 	private GameDto dto;
 	
 	/**
-	 * ±¬Õ¨µÄX×ø±ê
+	 * çˆ†ç‚¸çš„Xåæ ‡
 	 */
 	private int boomX;
 
 	/**
-	 * ±¬Õ¨µÄY×ø±ê
+	 * çˆ†ç‚¸çš„Yåæ ‡
 	 */
 	private int boomY;
 	
 	/**
-	 * ÉèÖÃ±¬Õ¨ÎªĞèÒª
+	 * è®¾ç½®çˆ†ç‚¸ä¸ºéœ€è¦
 	 */
 	private boolean live = true;
 	
 	/**
-	 * ±¬Õ¨µÄid
+	 * çˆ†ç‚¸çš„id
 	 */
-	private int id ;
+	private int id;
 	
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 */
-	public Boom(int boomX,int boomY,GameDto dto){
+	public Boom(int boomX,int boomY,GameDto dto) {
 		this.boomX = boomX;
 		this.boomY = boomY;
 		this.dto = dto;
 	}
 	
 	/**
-	 * µÃµ½±¬Õ¨µãµÄX×ø±ê
+	 * å¾—åˆ°çˆ†ç‚¸ç‚¹çš„Xåæ ‡
 	 */
 	public int getBoomX() {
 		return boomX;
 	}
 
 	/**
-	 * ÉèÖÃ±¬Õ¨µãµÄY×ø±ê
+	 * è®¾ç½®çˆ†ç‚¸ç‚¹çš„Yåæ ‡
 	 */
 	public void setBoomX(int boomX) {
 		this.boomX = boomX;
 	}
 
 	/**
-	 * µÃµ½±¬Õ¨µãµÄY×ø±ê
+	 * å¾—åˆ°çˆ†ç‚¸ç‚¹çš„Yåæ ‡
 	 */
 	public int getBoomY() {
 		return boomY;
 	}
 	
 	/**
-	 * ÉèÖÃ±¬Õ¨µãµÄY×ø±ê
+	 * è®¾ç½®çˆ†ç‚¸ç‚¹çš„Yåæ ‡
 	 */
 	public void setBoomY(int boomY) {
 		this.boomY = boomY;
 	}
 	
 	/**
-	 * ÉèÖÃ±¬Õ¨ÊÇ·ñĞèÒª
+	 * è®¾ç½®çˆ†ç‚¸æ˜¯å¦éœ€è¦
 	 */
-	public void setLive(boolean live){
+	public void setLive(boolean live) {
 		this.live = live;
 	}
 	
-	public void drawBoom(Graphics g){	
-		//Èç¹û²»ĞèÒª±¬Õ¨¾Í²»»æ»­
-		if(!live){
+	public void drawBoom(Graphics g) {	
+		//å¦‚æœä¸éœ€è¦çˆ†ç‚¸å°±ä¸ç»˜ç”»
+		if (!live) {
 			return;
 		}
-		if(id == Img.BOOM[0].length){
+		if (id == Img.BOOM[0].length) {
 			live = false;
 			id = 0;
 			return;
 		}
-		g.drawImage(Img.BOOM[this.dto.getFireID()][id], boomX, boomY,null);
+		g.drawImage(Img.BOOM[this.dto.getFireID()][id], boomX, boomY, null);
 		id++;	
 	}
 	

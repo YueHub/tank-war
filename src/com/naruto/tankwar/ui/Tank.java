@@ -7,175 +7,175 @@ import javax.swing.ImageIcon;
 import com.naruto.tankwar.dto.GameDto;
 import com.naruto.tankwar.img.Img;
 
-public class Tank{	
+public class Tank {	
 	
 	/**
-	 * ÓÃÀ´¸øÄÚ²¿Àà·ÃÎÊ
+	 * ç”¨æ¥ç»™å†…éƒ¨ç±»è®¿é—®
 	 */
 	private Tank thistank = this;
 	
 	/**
-	 * ÄÚ²¿Àà£¨ÓÃÀ´»æÖÆÓÎÏ·µÄÖ÷Òª²¿·Ö£©
+	 * å†…éƒ¨ç±»ï¼ˆç”¨æ¥ç»˜åˆ¶æ¸¸æˆçš„ä¸»è¦éƒ¨åˆ†ï¼‰
 	 */
 	private paintMain paintMian;
 	
 	/**
-	 * ÓÎÏ·Êı¾İ
+	 * æ¸¸æˆæ•°æ®
 	 */
 	private GameDto dto;
 		
 	/**
-	 * Ì¹¿ËµÄX×ø±ê
+	 * å¦å…‹çš„Xåæ ‡
 	 */
 	private int tankX;
 	
 	/**
-	 * Ì¹¿ËµÄY×ø±ê 
+	 * å¦å…‹çš„Yåæ ‡ 
 	 */
 	private int tankY;
 	
 	/**
-	 * Ì¹¿ËµÄÒÆ¶¯ËÙ¶È
+	 * å¦å…‹çš„ç§»åŠ¨é€Ÿåº¦
 	 */
 	private static final int SPEED = 15;
 	
 	/**
-	 * ÆÕÍ¨Ì¹¿ËµÄ¿í¶È
+	 * æ™®é€šå¦å…‹çš„å®½åº¦
 	 */
 	private static final int TANK_W = 60;
 	
 	/**
-	 * ÆÕÍ¨Ì¹¿ËµÄ¸ß¶È
+	 * æ™®é€šå¦å…‹çš„é«˜åº¦
 	 */
 	private static final int TANK_H = 60;
 
 	/**
-	 * Ì¹¿ËbossµÄ¿í¶È
+	 * å¦å…‹bossçš„å®½åº¦
 	 */
 	private static final int BOSS_W = 180;
 	
 	/**
-	 * Ì¹¿ËbossµÄ¸ß¶È
+	 * å¦å…‹bossçš„é«˜åº¦
 	 */
 	private static final int BOSS_H = 180;
 	
 	/**
-	 * Ì¹¿ËµÄXÒÆ¶¯²½·¥
+	 * å¦å…‹çš„Xç§»åŠ¨æ­¥ä¼
 	 */
 	private int xMove;
 	
 	/**
-	 * Ì¹¿ËµÄYÒÆ¶¯²½·¥
+	 * å¦å…‹çš„Yç§»åŠ¨æ­¥ä¼
 	 */
 	private int yMove;
 	
 	/**
-	 * Ì¹¿ËÇ°Ò»²½µÄX×ø±ê
+	 * å¦å…‹å‰ä¸€æ­¥çš„Xåæ ‡
 	 */
 	private int oldX;
 	
 	/**
-	 * Ì¹¿ËÇ°Ò»²½µÄY×ø±ê
+	 * å¦å…‹å‰ä¸€æ­¥çš„Yåæ ‡
 	 */
 	private int oldY;
 
 	/**
-	 * Ì¹¿ËµÄÑªÁ¿
+	 * å¦å…‹çš„è¡€é‡
 	 */
 	private double exp;
 	
 	/**
-	 * Ì¹¿ËÊÇÍæ¼Ò¿ØÖÆ»¹ÊÇ¼ÆËã»ú¿ØÖÆ
+	 * å¦å…‹æ˜¯ç©å®¶æ§åˆ¶è¿˜æ˜¯è®¡ç®—æœºæ§åˆ¶
 	 */
 	private boolean player;
 	
 	/**
-	 * ÊÇ·ñÊÇboss
+	 * æ˜¯å¦æ˜¯boss
 	 */
 	private boolean boss; 
 
 	/**
-	 * Ì¹¿ËÊÇ·ñ±»´İ»Ù
+	 * å¦å…‹æ˜¯å¦è¢«æ‘§æ¯
 	 */
 	private boolean tankDestroy;
 	
 	/**
-	 * ËÄ¸ö·½Ïò
+	 * å››ä¸ªæ–¹å‘
 	 */
 	private boolean bL=false, bU=false, bR=false, bD = false;
 	
 	/**
-	 *Ã¶¾Ù°Ë¸ö·½Ïò
+	 *æšä¸¾å…«ä¸ªæ–¹å‘
 	 */
 	public static enum Direction {L, U, R, D, STOP};
 	
 	/**
-	 * ³õÊ¼»¯·½Ïò
+	 * åˆå§‹åŒ–æ–¹å‘
 	 */
 	private Direction dir = Direction.STOP;
 	
 	/**
-	 * ³õÊ¼»¯·½Ïò
+	 * åˆå§‹åŒ–æ–¹å‘
 	 */
 	private Direction pdDir = Direction.U;
 	
 	/**
-	 * µÃµ½Ò»¸öËæ»úÊı²úÉúÆ÷
+	 * å¾—åˆ°ä¸€ä¸ªéšæœºæ•°äº§ç”Ÿå™¨
 	 */
 	private static Random random = new Random();
 	
 	/**
-	 * ÔÚÃ¿Ò»¸ö·½·¨»úÆ÷ÈËÌ¹¿Ë»á×ß3µ½15Ö®¼äµÄ½Å²½
+	 * åœ¨æ¯ä¸€ä¸ªæ–¹æ³•æœºå™¨äººå¦å…‹ä¼šèµ°3åˆ°15ä¹‹é—´çš„è„šæ­¥
 	 */
 	private int step = random.nextInt(12) + 3;
 	
 	/**
-	 * Ì¹¿ËµÄIDºÅ
+	 * å¦å…‹çš„IDå·
 	 */
 	private int tankID;
 	
 	/**
-	 * Ì¹¿ËµÄÖÖÀà
+	 * å¦å…‹çš„ç§ç±»
 	 */
 	private int tankKind;
 	
 	
 	/**
-	 * Ì¹¿ËµÄÉúÃüÊı
+	 * å¦å…‹çš„ç”Ÿå‘½æ•°
 	 */
 	private int life;
 	
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 */
-	public Tank(GameDto dto,boolean player,boolean boss,int tankX,int tankY,Direction dir){
+	public Tank(GameDto dto,boolean player,boolean boss,int tankX,int tankY,Direction dir) {
 		this.dto = dto;
-		//³õÊ¼»¯Ì¹¿ËµÄÑªÁ¿
+		//åˆå§‹åŒ–å¦å…‹çš„è¡€é‡
 		this.exp = 100;
-		//³õÊ¼»¯Ì¹¿ËÊÇË­¿ØÖÆµÄ
+		//åˆå§‹åŒ–å¦å…‹æ˜¯è°æ§åˆ¶çš„
 		this.player = player;
-		//³õÊ¼»¯Ì¹¿ËÊÇ·ñÊÇboss
+		//åˆå§‹åŒ–å¦å…‹æ˜¯å¦æ˜¯boss
 		this.boss = boss;
 		this.tankX = tankX;
 		this.tankY = tankY;
-		//³õÊ¼»¯»úÆ÷ÈËÌ¹¿ËµÄ·½Ïò
+		//åˆå§‹åŒ–æœºå™¨äººå¦å…‹çš„æ–¹å‘
 		this.dir = dir;
 		initTank();
 	}
 	
 	/**
-	 * ³õÊ¼»¯Ì¹¿ËµÄÖÖÀà±êÊ¶ ºÍÉúÃüÊı
+	 * åˆå§‹åŒ–å¦å…‹çš„ç§ç±»æ ‡è¯† å’Œç”Ÿå‘½æ•°
 	 */
-	public void initTank(){
-		if(this.isPlayer()){
+	public void initTank() {
+		if (this.isPlayer()) {
 			this.tankKind = 0;
 			this.life = 2;
 		}
-		if(!this.isPlayer()&&!this.isBoss()){
+		if (!this.isPlayer()&&!this.isBoss()) {
 			this.tankKind = 1;
 			this.life = 1;
 		}
-		if(this.isBoss()){
+		if (this.isBoss()) {
 			this.tankKind = 2;
 			this.life = 2;
 		}	
@@ -183,28 +183,28 @@ public class Tank{
 	}
 	
 	/**
-	 * µÃµ½Ì¹¿ËµÄX×ø±ê
+	 * å¾—åˆ°å¦å…‹çš„Xåæ ‡
 	 */
 	public int getTankX() {
 		return tankX;
 	}
 	
 	/**
-	 * ÉèÖÃÌ¹¿ËµÄX×ø±ê 
+	 * è®¾ç½®å¦å…‹çš„Xåæ ‡ 
 	 */
 	public void setTankX(int tankX) {
 		this.tankX = tankX;
 	}
 	
 	/**
-	 * µÃµ½Ì¹¿ËµÄY×ø±ê
+	 * å¾—åˆ°å¦å…‹çš„Yåæ ‡
 	 */
 	public int getTankY() {
 		return tankY;
 	}
 	
 	/**
-	 * ÉèÖÃÌ¹¿ËµÄY×ø±ê
+	 * è®¾ç½®å¦å…‹çš„Yåæ ‡
 	 */
 	public void setTankY(int tankY) {
 		this.tankY = tankY;
@@ -212,142 +212,140 @@ public class Tank{
 	
 	
 	/**
-	 * µÃµ½Ì¹¿ËÊÇ·ñ±»´İ»Ù
+	 * å¾—åˆ°å¦å…‹æ˜¯å¦è¢«æ‘§æ¯
 	 */
 	public boolean isTankDestroy(){
 		return tankDestroy;
 	}
 	
 	/**
-	 * ÉèÖÃÌ¹¿ËÊÇ·ñ±»´İ»Ù
+	 * è®¾ç½®å¦å…‹æ˜¯å¦è¢«æ‘§æ¯
 	 */
 	public void setTankDestroy(boolean tankDestroy) {
 		this.tankDestroy = tankDestroy;
 	}
 	
 	/**
-	 * ÉèÖÃÌ¹¿Ë×ó·½ÏòÊÇ·ñÎªtrue£¨¼´Íæ¼ÒÓĞÃ»ÓĞ°´×ó·½Ïò¼ü£©
+	 * è®¾ç½®å¦å…‹å·¦æ–¹å‘æ˜¯å¦ä¸ºtrueï¼ˆå³ç©å®¶æœ‰æ²¡æœ‰æŒ‰å·¦æ–¹å‘é”®ï¼‰
 	 */
 	public void setbL(boolean bL) {
 		this.bL = bL;
 	}
 	
 	/**
-	 * ÉèÖÃÌ¹¿ËÉÏ·½ÏòÊÇ·ñÎªtrue£¨¼´Íæ¼ÒÓĞÃ»ÓĞ°´ÉÏ·½Ïò¼ü£©
+	 * è®¾ç½®å¦å…‹ä¸Šæ–¹å‘æ˜¯å¦ä¸ºtrueï¼ˆå³ç©å®¶æœ‰æ²¡æœ‰æŒ‰ä¸Šæ–¹å‘é”®ï¼‰
 	 */
 	public void setbU(boolean bU) {
 		this.bU = bU;
 	}
 	
 	/**
-	 * ÉèÖÃÌ¹¿Ë×ó·½ÏòÊÇ·ñÎªtrue£¨¼´Íæ¼ÒÓĞÃ»ÓĞ°´ÓÒ·½Ïò¼ü£©
+	 * è®¾ç½®å¦å…‹å·¦æ–¹å‘æ˜¯å¦ä¸ºtrueï¼ˆå³ç©å®¶æœ‰æ²¡æœ‰æŒ‰å³æ–¹å‘é”®ï¼‰
 	 */
 	public void setbR(boolean bR) {
 		this.bR = bR;
 	}
 	
 	/**
-	 * ÉèÖÃÌ¹¿Ë×ó·½ÏòÊÇ·ñÎªtrue£¨¼´Íæ¼ÒÓĞÃ»ÓĞ°´ÏÂ·½Ïò¼ü£©
+	 * è®¾ç½®å¦å…‹å·¦æ–¹å‘æ˜¯å¦ä¸ºtrueï¼ˆå³ç©å®¶æœ‰æ²¡æœ‰æŒ‰ä¸‹æ–¹å‘é”®ï¼‰
 	 */
 	public void setbD(boolean bD) {
 		this.bD = bD;
 	}
 	
 	/**
-	 * µÃµ½ÏÖÔÚÌ¹¿ËµÄÑªÁ¿ 
+	 * å¾—åˆ°ç°åœ¨å¦å…‹çš„è¡€é‡ 
 	 */
 	public double getExp() {
 		return exp;
 	}
 	
 	/**
-	 * ÉèÖÃÏÖÔÚÌ¹¿ËµÄÑªÁ¿
+	 * è®¾ç½®ç°åœ¨å¦å…‹çš„è¡€é‡
 	 */
 	public void setExp(double exp) {
 		this.exp = exp;
 	}
 		
 	/**
-	 * µÃµ½ÏÖÔÚÍæ¼ÒµÄÉúÃüÊı
+	 * å¾—åˆ°ç°åœ¨ç©å®¶çš„ç”Ÿå‘½æ•°
 	 */
 	public int getLife() {
 		return life;
 	}
 
 	/**
-	 * ÉèÖÃÍæ¼ÒÏÖÔÚµÄÉúÃüÊı
+	 * è®¾ç½®ç©å®¶ç°åœ¨çš„ç”Ÿå‘½æ•°
 	 */
 	public void setLife(int life) {
 		this.life = life;
 	}
 	
 	/**
-	 * µÃµ½Ì¹¿ËÊÇÍæ¼Ò¿ØÖÆ»¹ÊÇ¼ÆËã»ú¿ØÖÆ
+	 * å¾—åˆ°å¦å…‹æ˜¯ç©å®¶æ§åˆ¶è¿˜æ˜¯è®¡ç®—æœºæ§åˆ¶
 	 */
 	public boolean isPlayer() {
 		return player;
 	}
 	
 	/**
-	 * ÉèÖÃÌ¹¿ËÓÉÍæ¼Ò»¹ÊÇ¼ÆËã»ú¿ØÖÆ
+	 * è®¾ç½®å¦å…‹ç”±ç©å®¶è¿˜æ˜¯è®¡ç®—æœºæ§åˆ¶
 	 */
 	public void setPlayer(boolean player) {
 		this.player = player;
 	}
 	
 	/**
-	 * µÃµ½Ì¹¿ËÊÇ·ñÊÇboss
+	 * å¾—åˆ°å¦å…‹æ˜¯å¦æ˜¯boss
 	 */
 	public boolean isBoss() {
 		return boss;
 	}
 	
 	/**
-	 * ÉèÖÃÌ¹¿ËÊÇ·ñÊÇboss
+	 * è®¾ç½®å¦å…‹æ˜¯å¦æ˜¯boss
 	 */
 	public void setBoss(boolean boss) {
 		this.boss = boss;
 	}
 	
 	/**
-	 *µÃµ½Ì¹¿ËµÄ¾ØĞÎ£¨ÓÃÓÚÅö×²¼ì²â£© 
+	 *å¾—åˆ°å¦å…‹çš„çŸ©å½¢ï¼ˆç”¨äºç¢°æ’æ£€æµ‹ï¼‰ 
 	 */
-	public Rectangle getRect(){
-		if(this.boss){
+	public Rectangle getRect() {
+		if (this.boss) {
 			return new Rectangle(tankX,tankY,BOSS_W,BOSS_H);
-		}
-		else{
+		} else {
 			return new Rectangle(tankX,tankY,TANK_W,TANK_H);
 		}
 		
 	}
 	
 	/**
-	 * Ì¹¿Ë¿ª»ğ
+	 * å¦å…‹å¼€ç«
 	 */
 	public void fire() {
-		if(this.tankDestroy){
+		if (this.tankDestroy) {
 			return;
 		}
-		//³õÊ¼ÅÚµ¯µÄX×ø±êºÍY×ø±ê
+		//åˆå§‹ç‚®å¼¹çš„Xåæ ‡å’ŒYåæ ‡
 		int x = 0;
 		int y = 0;
-		//Èç¹ûÊÇÍæ¼ÒÌ¹¿Ë½«Ì¹¿ËÅÚµ¯±êÊ¶ÎªÍæ¼ÒÅÚµ¯ ²¢ĞÂ´´½¨Ò»¸öÅÚµ¯µ½ÅÚµ¯¼¯ºÏÖĞ
-		if(this.isPlayer()) {
+		//å¦‚æœæ˜¯ç©å®¶å¦å…‹å°†å¦å…‹ç‚®å¼¹æ ‡è¯†ä¸ºç©å®¶ç‚®å¼¹ å¹¶æ–°åˆ›å»ºä¸€ä¸ªç‚®å¼¹åˆ°ç‚®å¼¹é›†åˆä¸­
+		if (this.isPlayer()) {
 			x = this.tankX + TANK_W/2 - Bullet.BULLET_W/2;
 			y = this.tankY + TANK_H/2 - Bullet.BULLET_H/2;
 			Bullet bullet = new Bullet(x, y,this.dto,pdDir,true,false);
 			this.dto.getBullet().add(bullet);
 		}
-		if(this.isBoss()){
+		if (this.isBoss()) {
 			 x = this.tankX + BOSS_W/2 - 140/2;
 			 y = this.tankY + BOSS_H/2 - 110/2; 
 			Bullet bullet = new Bullet(x,y,this.dto,pdDir,false,true);
 			this.dto.getBullet().add(bullet);
 		}
-		//Èç¹ûÊÇ»úÆ÷ÈËÌ¹¿Ë½«Ì¹¿ËÅÚµ¯±êÊ¶Îª»úÆ÷ÈËÅÚµ¯ ²¢ĞÂ´´½¨Ò»¸öÅÚµ¯µ½ÅÚµ¯¼¯ºÏÖĞ
-		if(!this.isPlayer()&&!this.isBoss())
-		{
+		//å¦‚æœæ˜¯æœºå™¨äººå¦å…‹å°†å¦å…‹ç‚®å¼¹æ ‡è¯†ä¸ºæœºå™¨äººç‚®å¼¹ å¹¶æ–°åˆ›å»ºä¸€ä¸ªç‚®å¼¹åˆ°ç‚®å¼¹é›†åˆä¸­
+		if (!this.isPlayer()&&!this.isBoss()) {
 			x = this.tankX + TANK_W/2 - Bullet.BULLET_W/2;
 			y = this.tankY + TANK_H/2 - Bullet.BULLET_H/2;
 			Bullet bullet = new Bullet(x, y,this.dto,pdDir,false,false);
@@ -356,43 +354,42 @@ public class Tank{
 	}
 
 	/**
-	 * ¿ÛÑª
+	 * æ‰£è¡€
 	 */
-	public void reduceExp(){
-		//Èç¹ûÊÇÍæ¼ÒÌ¹¿ËÃ¿´Î±»´ò¿Û5µÎÑª
-		if(this.isPlayer()){
+	public void reduceExp() {
+		//å¦‚æœæ˜¯ç©å®¶å¦å…‹æ¯æ¬¡è¢«æ‰“æ‰£5æ»´è¡€
+		if (this.isPlayer()) {
 			this.exp -= 5;
 		}
-		if(this.isBoss()){
+		if (this.isBoss()) {
 			this.exp -= 5;
 		}
-		//Èç¹ûÊÇ»úÆ÷ÈËÃ¿´Î±»´ò¿Û²»Í¬µÎÑª£¨Óë¿ª»ğ·½Ê½ÓĞ¹Ø£©
-		if(!this.isBoss()&&!this.isPlayer())
-			switch(this.dto.getFireID()){
-			case 0 :this.exp -= 15;break;
-			case 1 :this.exp -= 25;break;
-			case 2 :this.exp -= 40;break;
-			case 3 :this.exp -= 60;break;
+		//å¦‚æœæ˜¯æœºå™¨äººæ¯æ¬¡è¢«æ‰“æ‰£ä¸åŒæ»´è¡€ï¼ˆä¸å¼€ç«æ–¹å¼æœ‰å…³ï¼‰
+		if (!this.isBoss()&&!this.isPlayer())
+			switch(this.dto.getFireID()) {
+				case 0 :this.exp -= 15;break;
+				case 1 :this.exp -= 25;break;
+				case 2 :this.exp -= 40;break;
+				case 3 :this.exp -= 60;break;
 			}
-			
 	}
 	
 	/**
-	 * Ì¹¿ËÊÇ·ñ ×²»÷Ç½±Ú
+	 * å¦å…‹æ˜¯å¦ æ’å‡»å¢™å£
 	 */
-	public boolean hitWall(Wall wall){
-		if(this.getRect().intersects(wall.getRect())){
+	public boolean hitWall(Wall wall) {
+		if (this.getRect().intersects(wall.getRect())) {
 			return true;
 		}
 		return false;
 	}
 	
 	/**
-	 * Ì¹¿ËÅö×²ÊÇ·ñÅö×²Ç½±ÚÃÇ
+	 * å¦å…‹ç¢°æ’æ˜¯å¦ç¢°æ’å¢™å£ä»¬
 	 */
-	public boolean hitWalls(){
-		for(int i = 0 ;i<this.dto.getWalls().size();i++){
-			if(this.hitWall(this.dto.getWalls().get(i))){
+	public boolean hitWalls() {
+		for (int i = 0;i < this.dto.getWalls().size(); i++) {
+			if (this.hitWall(this.dto.getWalls().get(i))) {
 				return true;
 			}
 		}
@@ -400,21 +397,21 @@ public class Tank{
 	}
 	
 	/**
-	 * ÊÇ·ñÅö×²µ½ÁËÌ¹¿Ë
+	 * æ˜¯å¦ç¢°æ’åˆ°äº†å¦å…‹
 	 */
-	public boolean hitTank(Tank tank){
-		if(this.getRect().intersects(tank.getRect())&&tank!=thistank){
+	public boolean hitTank(Tank tank) {
+		if (this.getRect().intersects(tank.getRect())&&tank!=thistank) {
 			return true;
 		}
 		return false;
 	}
 	
 	/**
-	 * ÊÇ·ñÅö×²µ½ÁËÆäËûµÄËùÓĞÌ¹¿Ë
+	 * æ˜¯å¦ç¢°æ’åˆ°äº†å…¶ä»–çš„æ‰€æœ‰å¦å…‹
 	 */
-	public boolean hitTanks(){
-		for(int i = 0;i<this.dto.getTanks().size();i++){
-			if(this.hitTank(this.dto.getTanks().get(i))){
+	public boolean hitTanks() {
+		for (int i = 0; i < this.dto.getTanks().size(); i++) {
+			if (this.hitTank(this.dto.getTanks().get(i))) {
 				return true;
 			}
 		}
@@ -422,19 +419,19 @@ public class Tank{
 	}
 	
 	/**
-	 * Ì¹¿ËÅö×²ÉÏµØÀ×
+	 * å¦å…‹ç¢°æ’ä¸Šåœ°é›·
 	 */
-	public boolean hitLandMine(LandMine landmine){
-		if(this.getRect().intersects(landmine.getRect())&&!this.isPlayer()){
-			//ÉèÖÃÅöÉÏµØÀ×µÄÌ¹¿Ë´İ»Ù
+	public boolean hitLandMine(LandMine landmine) {
+		if (this.getRect().intersects(landmine.getRect())&&!this.isPlayer()) {
+			//è®¾ç½®ç¢°ä¸Šåœ°é›·çš„å¦å…‹æ‘§æ¯
 			this.setTankDestroy(true);
-			//´Ó¼¯ºÏÖĞÒÆ³ı´ËÌ¹¿Ë
+			//ä»é›†åˆä¸­ç§»é™¤æ­¤å¦å…‹
 			this.dto.getTanks().remove(this);
-			//ÉèÖÃÅÚÕ¨ÎªĞèÒª
+			//è®¾ç½®ç‚®ç‚¸ä¸ºéœ€è¦
 			this.dto.getBoom().setLive(true);
-			//ÉèÖÃµØÀ×ÎªµÚÎåÖÖ¿ª»ğ·½Ê½
+			//è®¾ç½®åœ°é›·ä¸ºç¬¬äº”ç§å¼€ç«æ–¹å¼
 //			this.dto.setFireID(4);
-			//ÉèÖÃµØÀ×´İ»Ù
+			//è®¾ç½®åœ°é›·æ‘§æ¯
 			landmine.setLandMineDestroy(true);
 			return true;
 		}
@@ -442,11 +439,11 @@ public class Tank{
 	}
 	
 	/**
-	 * Ì¹¿ËÅö×²ÉÏÒ»ÈºµØÀ×
+	 * å¦å…‹ç¢°æ’ä¸Šä¸€ç¾¤åœ°é›·
 	 */
-	public boolean hitLandMines(){
-		for(int i =0;i<this.dto.getLandmines().size();i++){
-			if(this.hitLandMine(this.dto.getLandmines().get(i))){
+	public boolean hitLandMines() {
+		for (int i = 0; i<this.dto.getLandmines().size(); i++) {
+			if (this.hitLandMine(this.dto.getLandmines().get(i))) {
 				return true;
 			}
 		}
@@ -454,69 +451,69 @@ public class Tank{
 	}
 	
 	/**
-	 * ²»ÔÙÒÆ¶¯
+	 * ä¸å†ç§»åŠ¨
 	 */
-	public void stay(){
+	public void stay() {
 		tankX = oldX;
 		tankY = oldY;
 	}
 	
 	/**
-	 * °ËÖÖ²»Í¬µÄ°´¼üÇé¿ö¶ÔÓ¦Ã¶¾ÙµÄ°Ë¸ö²ÎÊı
+	 * å…«ç§ä¸åŒçš„æŒ‰é”®æƒ…å†µå¯¹åº”æšä¸¾çš„å…«ä¸ªå‚æ•°
 	 */
 	public void locateDirection() {
-		if(bL && !bU && !bR && !bD) dir = Direction.L;
-		else if(!bL && bU && !bR && !bD) dir = Direction.U;
-		else if(!bL && !bU && bR && !bD) dir = Direction.R;
-		else if(!bL && !bU && !bR && bD) dir = Direction.D;
-		else if(!bL && !bU && !bR && !bD) dir = Direction.STOP;
+		if (bL && !bU && !bR && !bD) dir = Direction.L;
+		else if (!bL && bU && !bR && !bD) dir = Direction.U;
+		else if (!bL && !bU && bR && !bD) dir = Direction.R;
+		else if (!bL && !bU && !bR && bD) dir = Direction.D;
+		else if (!bL && !bU && !bR && !bD) dir = Direction.STOP;
 	}
 	
 	/**
-	 * ¸ù¾İ²»Í¬Çé¿öÌ¹¿Ë×ö²»Í¬µÄÒÆ¶¯
+	 * æ ¹æ®ä¸åŒæƒ…å†µå¦å…‹åšä¸åŒçš„ç§»åŠ¨
 	 */
 	public void move() {
-		if(!this.dto.isStartGame()){
+		if (!this.dto.isStartGame()) {
 			return ;
 		}
-		//Èç¹ûÊÇÔİÍ£Ì¹¿Ë¾Í²»ÒÆ¶¯
-		if(this.dto.isPause()){
+		//å¦‚æœæ˜¯æš‚åœå¦å…‹å°±ä¸ç§»åŠ¨
+		if (this.dto.isPause()) {
 			return;
 		}
-		//Èç¹ûÊÇÀäÈ´Ê±¼ä²¢ÇÒÊÇ»úÆ÷ÈËÄÇ¾Í²»ÒÆ¶¯
-		if(!this.isPlayer()&&this.dto.isCoolTime()){
+		//å¦‚æœæ˜¯å†·å´æ—¶é—´å¹¶ä¸”æ˜¯æœºå™¨äººé‚£å°±ä¸ç§»åŠ¨
+		if (!this.isPlayer()&&this.dto.isCoolTime()) {
 			return;
 		}
 		
 		oldX = tankX;
 		oldY = tankY;
 		
-		//Èç¹ûÊÇ»úÆ÷ÈËÌ¹¿Ë  ¾Í¸ù¾İËæ»ú·½ÏòÒÆ¶¯
-		if(!this.isPlayer()){
+		//å¦‚æœæ˜¯æœºå™¨äººå¦å…‹  å°±æ ¹æ®éšæœºæ–¹å‘ç§»åŠ¨
+		if (!this.isPlayer()) {
 			Direction[] dirs = Direction.values();
-			if(step == 0) {
+			if (step == 0) {
 				step = random.nextInt(12) + 3;
 				int rn = random.nextInt(dirs.length);
-				//È¡µÃËæ»úÒ»¸ö·½·¨ 
+				//å–å¾—éšæœºä¸€ä¸ªæ–¹æ³• 
 				this.dir = dirs[rn];
-				//ÏòÄ³Ò»¸ö·½·¨×ßstep²½ stepÎª3µ½15µÄËæ»úÊı 
-		}
+				//å‘æŸä¸€ä¸ªæ–¹æ³•èµ°stepæ­¥ stepä¸º3åˆ°15çš„éšæœºæ•° 
+			}
 			
 			step -- ;
 			
-			if(this.isBoss()){
-				if(random.nextInt(15)<3){
+			if (this.isBoss()) {
+				if (random.nextInt(15) < 3){
 					fire();	
 				}
 			}
-			if(!this.isBoss()){
-				if(random.nextInt(15)<5){
+			if (!this.isBoss()) {
+				if (random.nextInt(15) < 5) {
 					fire();	
 				}
 			}
 			
 		}
-		switch(dir){
+		switch(dir) {
 		case U:
 			xMove = 0;
 			yMove = -SPEED;
@@ -552,7 +549,7 @@ public class Tank{
 		case R:
 			xMove = SPEED;
 			yMove = 0;
-			if(this.isOverWindow(tankX+xMove, tankY+yMove)){
+			if (this.isOverWindow(tankX+xMove, tankY+yMove)) {
 				return ;
 			}
 			tankX += xMove;
@@ -561,78 +558,76 @@ public class Tank{
 			break;
 
 		}
-		if(this.dir != Direction.STOP) {
+		if (this.dir != Direction.STOP) {
 			this.pdDir = this.dir;
 		}
 	}	
 
 	/**
-	 * ÊÇ·ñÔ½½ç
+	 * æ˜¯å¦è¶Šç•Œ
 	 */
-	public boolean isOverWindow(int TankX,int TankY){
+	public boolean isOverWindow(int TankX,int TankY) {
 		int game_W = GameDto.panelGame_W;
 		int game_H = GameDto.panelGame_H;
-		if(this.boss){
+		if (this.boss) {
 			return TankX<0||TankX>game_W-BOSS_W||TankY<0||TankY>game_H-BOSS_H; 
-		}
-		else{
+		} else {
 			return TankX<0||TankX>game_W-TANK_W||TankY<0||TankY>game_H-TANK_H;
 		}
 		
 	}
 	
 	/**
-	 * ÄÚ²¿Àà  ÓÃÀ´»æÖÆÓÎÏ·Ö÷Òª²¿·Ö
+	 * å†…éƒ¨ç±»  ç”¨æ¥ç»˜åˆ¶æ¸¸æˆä¸»è¦éƒ¨åˆ†
 	 *
 	 */
-	private class paintMain{
+	private class paintMain {
 		
 		/**
-		 * »æÖÆÌ¹¿Ë
+		 * ç»˜åˆ¶å¦å…‹
 		 */
-		public void drawTank(Graphics g){
+		public void drawTank(Graphics g) {
 			this.drawWalls(g);
-			//Èç¹ûÌ¹¿ËÒÑ¾­±»´İ»ÙÄÇÃ´¾Í²»»æÖÆÌ¹¿Ë
-			if(isTankDestroy()){
+			//å¦‚æœå¦å…‹å·²ç»è¢«æ‘§æ¯é‚£ä¹ˆå°±ä¸ç»˜åˆ¶å¦å…‹
+			if (isTankDestroy()) {
 				return;
-			}
-			else{
-			//Èç¹ûÃ»ÓĞ±»´İ»ÙÄÇÃ´¾Í»æÖÆÌ¹¿ËºÍÑª²Û
-			g.drawImage(Img.TANK[tankKind][tankID],tankX,tankY,null);
-			this.drawExp(g);
-			//Ì¹¿ËÒÆ¶¯  ·ÅÔÚÕâÀïÊÇÒòÎªÒªÒÆ¶¯Òª²»Í£Ë¢ĞÂ
-			move();
-			//Èç¹û×²Ç½ÁË»ò×²µ½ÆäËûÌ¹¿Ë  ¾Í²»ÄÜÔÙÒÆ¶¯
-			if(hitWalls()||hitTanks()||hitLandMines()){
-				stay();
-			}
+			} else {
+				//å¦‚æœæ²¡æœ‰è¢«æ‘§æ¯é‚£ä¹ˆå°±ç»˜åˆ¶å¦å…‹å’Œè¡€æ§½
+				g.drawImage(Img.TANK[tankKind][tankID],tankX,tankY,null);
+				this.drawExp(g);
+				//å¦å…‹ç§»åŠ¨  æ”¾åœ¨è¿™é‡Œæ˜¯å› ä¸ºè¦ç§»åŠ¨è¦ä¸åœåˆ·æ–°
+				move();
+				//å¦‚æœæ’å¢™äº†æˆ–æ’åˆ°å…¶ä»–å¦å…‹  å°±ä¸èƒ½å†ç§»åŠ¨
+				if (hitWalls()||hitTanks()||hitLandMines()) {
+					stay();
+				}
 			}
 		}
 		
 		/**
-		 * »æÖÆÑª²Û
+		 * ç»˜åˆ¶è¡€æ§½
 		 */
-		public void drawExp(Graphics g){
-			if(dto.isCloseExp()){
+		public void drawExp(Graphics g) {
+			if (dto.isCloseExp()) {
 				return ;
 			}
-			//Ñª²ÛµÄX×ø±ê
+			//è¡€æ§½çš„Xåæ ‡
 			int rect_x = 0;
-			//Ñª²ÛµÄY×ø±ê
+			//è¡€æ§½çš„Yåæ ‡
 			int rect_y = 0;
-			//Ñª²ÛµÄ¿í¶È
+			//è¡€æ§½çš„å®½åº¦
 			int rect_W = 0;
-			//Ñª²ÛµÄ¸ß¶È
+			//è¡€æ§½çš„é«˜åº¦
 			int rect_H = 0;
-			//Ñª²Û¿ò¼ÜµÄx×ø±ê
+			//è¡€æ§½æ¡†æ¶çš„xåæ ‡
 			int rectframe_x = 0;
-			//Ñª²Û¿ò¼ÜµÄy×ø±ê
+			//è¡€æ§½æ¡†æ¶çš„yåæ ‡
 			int rectframe_y = 0;
-			//Ñª²Û¿ò¼ÜµÄ³¤¶È
+			//è¡€æ§½æ¡†æ¶çš„é•¿åº¦
 			int rectframe_W = 0;
-			//Ñª²Û¿ò¼ÜµÄ¸ß¶È
+			//è¡€æ§½æ¡†æ¶çš„é«˜åº¦
 			int rectframe_H = 0;
-			if(isBoss()){
+			if (isBoss()) {
 				Img.rectframe = new ImageIcon("skin/exp/rectframe.png").getImage();
 				Img.rect = new ImageIcon("skin/exp/rect.png").getImage();
 				rect_x = tankX;
@@ -644,7 +639,7 @@ public class Tank{
 				rectframe_W = 290;
 				rectframe_H = 60;
 			}
-			if(!isBoss()){
+			if (!isBoss()) {
 				Img.rectframe = new ImageIcon("skin/tank/rectframe.png").getImage();
 				Img.rect = new ImageIcon("skin/tank/rect.png").getImage();
 				rect_x = tankX;
@@ -656,94 +651,93 @@ public class Tank{
 				rectframe_W = 110;
 				rectframe_H = 35;		
 			}
-			//ÏÖÔÚÌ¹¿ËÑªÁ¿Õ¼µÄ±ÈÀı
-			double percent =exp/100 ;
-			//»æÖÆÑª²Û¿ò¼Ü
+			//ç°åœ¨å¦å…‹è¡€é‡å çš„æ¯”ä¾‹
+			double percent = exp/100 ;
+			//ç»˜åˆ¶è¡€æ§½æ¡†æ¶
 			g.drawImage(Img.rectframe,rectframe_x, rectframe_y,rectframe_W,rectframe_H,null);
-			//¸ù¾İÑªÁ¿±ÈÀı»æÖÆÑª²Û
+			//æ ¹æ®è¡€é‡æ¯”ä¾‹ç»˜åˆ¶è¡€æ§½
 			g.drawImage(Img.rect,rect_x,rect_y,rect_x+(int)(rect_W*percent),rect_y+rect_H,0,0,rect_W,rect_H,null);	
 		}
 		
 		/**
-		 * »æÖÆÅÚµ¯
+		 * ç»˜åˆ¶ç‚®å¼¹
 		 */
-		public void drawBullet(Graphics g){
-			for(int i = 0 ;i<dto.getBullet().size();i++){
-				//ÅÚµ¯´òµ½»úÆ÷ÈËÉíÉÏºóµÄ´¦Àí
+		public void drawBullet(Graphics g) {
+			for (int i = 0; i < dto.getBullet().size(); i++) {
+				//ç‚®å¼¹æ‰“åˆ°æœºå™¨äººèº«ä¸Šåçš„å¤„ç†
 				dto.getBullet().get(i).hitTanks(dto.getTanks());
-				//ÅÚµ¯´òµ½Íæ¼ÒÌ¹¿ËÉíÉÏºóµÄ´¦Àí
+				//ç‚®å¼¹æ‰“åˆ°ç©å®¶å¦å…‹èº«ä¸Šåçš„å¤„ç†
 				dto.getBullet().get(i).hitTank(thistank);
-				//ÅÚµ¯´òµ½Ç½±ÚÉÏµÄ´¦Àí
+				//ç‚®å¼¹æ‰“åˆ°å¢™å£ä¸Šçš„å¤„ç†
 				dto.getBullet().get(i).hitWalls(dto.getWalls());
-				//»æÖÆÅÚµ¯
+				//ç»˜åˆ¶ç‚®å¼¹
 				dto.getBullet().get(i).drawBullet(g);
 			}
 		}
 		
 		/**
-		 * »æÖÆµØÀ×
+		 * ç»˜åˆ¶åœ°é›·
 		 */
-		public void drawLandMine(Graphics g){
-			for(int i = 0 ;i<dto.getLandmines().size();i++){
+		public void drawLandMine(Graphics g) {
+			for (int i = 0 ;i < dto.getLandmines().size(); i++) {
 				dto.getLandmines().get(i).drawLandMine(g);
 			}
 		}
 		
 		/**
-		 * »æÖÆ»úÆ÷ÈËÌ¹¿Ë
+		 * ç»˜åˆ¶æœºå™¨äººå¦å…‹
 		 */
-		public void drawTanks(Graphics g){
-			//Èç¹û»úÆ÷ÈË±»ÍÅÃğ
-			if(dto.getTanks().size() == 0){
-				//Éı¼¶
-				dto.setLevel(dto.getLevel()+1);
+		public void drawTanks(Graphics g) {
+			//å¦‚æœæœºå™¨äººè¢«å›¢ç­
+			if (dto.getTanks().size() == 0) {
+				//å‡çº§
+				dto.setLevel(dto.getLevel() + 1);
 				//dto.setStart(false);
-				//Ë¢ĞÂµØÍ¼
+				//åˆ·æ–°åœ°å›¾
 				dto.getMap().removeMap();
 				dto.setMap(new Map(dto));
 				dto.getMap().creatMap();
 				
-				//Ë¢ĞÂµØÍ¼µÄÍ¬Ê±  ÈÃÍæ¼Òµ¯Ì¹¿Ë»Øµ½¼ÒÔ­µã
+				//åˆ·æ–°åœ°å›¾çš„åŒæ—¶  è®©ç©å®¶å¼¹å¦å…‹å›åˆ°å®¶åŸç‚¹
 				tankX = 600;
 				tankY = 600;
 				
-				//Èç¹û´òµ½µÚËÄ¹Ø£¨Boss¹Ø
-				if(dto.getLevel() == 4){
-					//É¾³ıËÄ¸öĞ¡±ø
-					for(int i = 0;i<dto.getTanks().size();i++){
+				//å¦‚æœæ‰“åˆ°ç¬¬å››å…³ï¼ˆBosså…³
+				if (dto.getLevel() == 4) {
+					//åˆ é™¤å››ä¸ªå°å…µ
+					for (int i = 0;i<dto.getTanks().size(); i++) {
 						dto.getTanks().get(i).setTankDestroy(true);
 					}
-					//Ìí¼Ótank Boss
+					//æ·»åŠ tank Boss
 					dto.getTanks().add(new Tank(dto,false,true,500,660-180,Tank.Direction.U));
 				}
-				//Èç¹û»¹Ã»´òµ½µÚËÄ¹Ø
-				if(dto.getLevel() != 4){
-					//Ìí¼ÓËÄ¸öĞ¡±ø
-				for(int i = 0 ;i<4;i++){
-					dto.getTanks().add(new Tank(dto,false,false,500+i*60,0,Tank.Direction.D));
+				//å¦‚æœè¿˜æ²¡æ‰“åˆ°ç¬¬å››å…³
+				if (dto.getLevel() != 4) {
+					//æ·»åŠ å››ä¸ªå°å…µ
+					for (int i = 0; i < 4; i++) {
+						dto.getTanks().add(new Tank(dto,false,false,500+i*60,0,Tank.Direction.D));
+					}
 				}
-				}
-				
 			}
-			for(int i = 0 ;i<dto.getTanks().size();i++){
+			for (int i = 0; i < dto.getTanks().size(); i++) {
 				dto.getTanks().get(i).paintMian.drawTank(g);
 			}
 		}
 		
 		/**
-		 * »æÖÆËùÓĞÇ½±Ú
+		 * ç»˜åˆ¶æ‰€æœ‰å¢™å£
 		 */
-		public void drawWalls(Graphics g){
-			for(int i = 0;i<dto.getWalls().size();i++){
+		public void drawWalls(Graphics g) {
+			for (int i = 0; i < dto.getWalls().size(); i++) {
 				dto.getWalls().get(i).drawWall(g);
 			}
 		}
 		
 		/**
-		 * »æÖÆ±¬Õ¨
+		 * ç»˜åˆ¶çˆ†ç‚¸
 		 */
-		public void drawBoom(Graphics g){
-			if(!dto.isStartGame()){
+		public void drawBoom(Graphics g) {
+			if (!dto.isStartGame()) {
 				return ;
 			}
 			dto.getBoom().drawBoom(g);
@@ -751,20 +745,20 @@ public class Tank{
 	}
 	
 	/**
-	 * µ÷ÓÃ´Ëpaint·½·¨ ¿ÉË¢ĞÂÓëÌ¹¿ËÓĞ¹ØµÄ¶à¸öÍ¼Æ¬£¨ÅÚµ¯ ±¬Õ¨µÈ£©
+	 * è°ƒç”¨æ­¤paintæ–¹æ³• å¯åˆ·æ–°ä¸å¦å…‹æœ‰å…³çš„å¤šä¸ªå›¾ç‰‡ï¼ˆç‚®å¼¹ çˆ†ç‚¸ç­‰ï¼‰
 	 */
-	public void paint(Graphics g){	
-		//»æÖÆÍæ¼ÒÌ¹¿Ë
+	public void paint(Graphics g) {	
+		// ç»˜åˆ¶ç©å®¶å¦å…‹
 		paintMian.drawTank(g);
-		//»æÖÆ»úÆ÷ÈË
+		// ç»˜åˆ¶æœºå™¨äºº
 		paintMian.drawTanks(g);
-		//»æÖÆÅÚµ¯
+		// ç»˜åˆ¶ç‚®å¼¹
 		paintMian.drawBullet(g);
-		//»æÖÆµØÀ×
+		// ç»˜åˆ¶åœ°é›·
 		paintMian.drawLandMine(g);
-		//»æÖÆ±¬Õ¨
+		// ç»˜åˆ¶çˆ†ç‚¸
 		paintMian.drawBoom(g);
-		//»æÖÆĞÅÏ¢
-		g.drawString("Ì¹¿ËÊıÁ¿£º"+this.dto.getTanks().size(),0,40);
+		// ç»˜åˆ¶ä¿¡æ¯
+		g.drawString("å¦å…‹æ•°é‡ï¼š"+this.dto.getTanks().size(),0,40);
 	}
 }

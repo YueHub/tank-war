@@ -14,50 +14,50 @@ public class PanelGame extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * ÓÎÏ·Êı¾İ´«Êä²ã
+	 * æ¸¸æˆæ•°æ®ä¼ è¾“å±‚
 	 */
 	private GameDto dto;
 	
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 */
-	public PanelGame(GameDto dto){
+	public PanelGame(GameDto dto) {
 		this.dto = dto;
 	}
 	
 	/**
-	 *°²×°ÓÎÏ·¿ØÖÆÆ÷ 
+	 *å®‰è£…æ¸¸æˆæ§åˆ¶å™¨ 
 	 */
-	public void setPlayerControl(PlayerControl playercontrol){
+	public void setPlayerControl(PlayerControl playercontrol) {
 		this.addKeyListener(playercontrol);
 	}
 	
 	/**
-	 * µÃµ½ÓÎÏ·Êı¾İ´«Êä²ã
+	 * å¾—åˆ°æ¸¸æˆæ•°æ®ä¼ è¾“å±‚
 	 */
-	public GameDto getGameDto(){
+	public GameDto getGameDto() {
 		return dto;
 	}
 
 
-	public void paintComponent(Graphics g){
-		//¸ù¾İµÈ¼¶¸ü»»±³¾°Í¼Æ¬
+	public void paintComponent(Graphics g) {
+		//æ ¹æ®ç­‰çº§æ›´æ¢èƒŒæ™¯å›¾ç‰‡
 		Img.background = new ImageIcon("skin/background/background"+this.dto.getLevel()+".png").getImage();
-		//»æÖÆ±³¾°Í¼Æ¬
+		//ç»˜åˆ¶èƒŒæ™¯å›¾ç‰‡
 		g.drawImage(Img.background,0,0,1200,660,null);
-		//»æÖÆÖ÷Òª
+		//ç»˜åˆ¶ä¸»è¦
 		this.dto.getTank().paint(g);
 		
-		//Èç¹ûÊÇÀäÈ´Ê±¼äÄÇÃ´¾Í»æÖÆÀäÈ´Í¼Æ¬
-		if(this.dto.isCoolTime()){
+		//å¦‚æœæ˜¯å†·å´æ—¶é—´é‚£ä¹ˆå°±ç»˜åˆ¶å†·å´å›¾ç‰‡
+		if (this.dto.isCoolTime()) {
 			g.drawImage(Img.cooltime, 0, 0,1200,660,null);
 		}
 		
-		//Èç¹ûÊÇÔİÍ£×´Ì¬ÄÇÃ´¾Í»æÖÆÔİÍ£Í¼Æ¬
-		if(this.dto.isPause()){
+		//å¦‚æœæ˜¯æš‚åœçŠ¶æ€é‚£ä¹ˆå°±ç»˜åˆ¶æš‚åœå›¾ç‰‡
+		if (this.dto.isPause()) {
 			g.drawImage(Img.pause,450,280,null);
 		}
-		//»ñµÃ½¹µã
+		//è·å¾—ç„¦ç‚¹
 		this.requestFocus();
 	}
 	

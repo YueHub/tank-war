@@ -5,31 +5,31 @@ import java.awt.event.KeyEvent;
 import com.naruto.tankwar.dto.GameDto;
 
 
-public class PlayerControl extends KeyAdapter{
+public class PlayerControl extends KeyAdapter {
 	
 	/**
-	 *ÓÎÏ·¿ØÖÆÆ÷ 
+	 *æ¸¸æˆæ§åˆ¶å™¨ 
 	 */
 	private GameControl gamecontrol;
 	
 	/**
-	 * ÓÎÏ·Êı¾İ´«Êä²ã
+	 * æ¸¸æˆæ•°æ®ä¼ è¾“å±‚
 	 */
 	private GameDto dto;
 	
 	/**
-	 *¹¹Ôì·½·¨ 
+	 *æ„é€ æ–¹æ³• 
 	 */
-	public PlayerControl(GameControl gamecontrol,GameDto dto){
+	public PlayerControl(GameControl gamecontrol,GameDto dto) {
 		this.gamecontrol = gamecontrol;
 		this.dto = dto;
 	}
 
 	/**
-	 *Íæ¼Ò¿ØÖÆÆ÷£¨¼üÅÌÊÂ¼ş£© 
+	 *ç©å®¶æ§åˆ¶å™¨ï¼ˆé”®ç›˜äº‹ä»¶ï¼‰ 
 	 */
 	public void keyPressed(KeyEvent e) {
-		switch(e.getKeyCode()){
+		switch (e.getKeyCode()){
 		case KeyEvent.VK_SPACE:
 			this.gamecontrol.startGame();
 			break;
@@ -45,43 +45,43 @@ public class PlayerControl extends KeyAdapter{
 		case KeyEvent.VK_D:
 			this.gamecontrol.right();
 			break;
-			//¿ª»ğ·½Ê½Ò»
+			//å¼€ç«æ–¹å¼ä¸€
 		case KeyEvent.VK_J:
 			this.gamecontrol.fire_1();
 			break;
-			//¿ª»ğ·½Ê½¶ş
+			//å¼€ç«æ–¹å¼äºŒ
 		case KeyEvent.VK_K:
 			this.gamecontrol.fire_2();
 			break;
-			//¿ª»ğ·½Ê½Èı
+			//å¼€ç«æ–¹å¼ä¸‰
 		case KeyEvent.VK_L:
 			this.gamecontrol.fire_3();
 			break;
-			//¿ª»ğ·½Ê½ËÄ
+			//å¼€ç«æ–¹å¼å››
 		case KeyEvent.VK_I:
 			this.gamecontrol.buryMine();
 			break;
-			//Ìí¼Ó»úÆ÷ÈË
+			//æ·»åŠ æœºå™¨äºº
 		case KeyEvent.VK_F1:
 			this.gamecontrol.addTank();
 			break;
-			//×÷±×¼ü
+			//ä½œå¼Šé”®
 		case KeyEvent.VK_F2:
 			this.gamecontrol.cheat();
 			break;
-			//ÀäÈ´Ê±¼ä
+			//å†·å´æ—¶é—´
 		case KeyEvent.VK_F3:
 			this.gamecontrol.coolTime();
 			break;
-			//Ìø¹Ø¿¨(×÷±×)
+			//è·³å…³å¡(ä½œå¼Š)
 		case KeyEvent.VK_F4:
 			this.gamecontrol.jumpOff();
 			break;
-			//ÔİÍ£
+			//æš‚åœ
 		case KeyEvent.VK_ENTER:
 			this.gamecontrol.pause();
 			break;
-			//¹Ø±ÕÑª²Û
+			//å…³é—­è¡€æ§½
 		case KeyEvent.VK_SHIFT:
 			this.gamecontrol.closeExp();
 			break;
@@ -93,7 +93,7 @@ public class PlayerControl extends KeyAdapter{
 	} 
 	
 	public void keyReleased(KeyEvent e) {
-		switch(e.getKeyCode()) {
+		switch (e.getKeyCode()) {
 		case KeyEvent.VK_W :
 			this.dto.getTank().setbU(false);
 			break;
@@ -109,9 +109,4 @@ public class PlayerControl extends KeyAdapter{
 		}
 		this.dto.getTank().locateDirection();		
 	}
-	
-	
-	
-	
-	
 }

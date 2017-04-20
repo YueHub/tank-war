@@ -9,82 +9,82 @@ import com.naruto.tankwar.ui.Tank;
 public class GameService {
 	
 	/**
-	 * ÓÎÏ·Êı¾İ´«Êä²ã
+	 * æ¸¸æˆæ•°æ®ä¼ è¾“å±‚
 	 */
 	private GameDto dto ;
 	
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 */
-	public GameService(GameDto dto,PanelGame panelgame){
+	public GameService(GameDto dto,PanelGame panelgame) {
 		this.dto = dto;
 	}
 	
 	
 	/**
-	 * ÓÎÏ·¿ªÊ¼£¡
+	 * æ¸¸æˆå¼€å§‹ï¼
 	 */
 	public void startGame() {
 		this.dto.setStartGame(true);
 	}
 	
 	/**
-	 * Ì¹¿ËÏòÉÏÒÆ¶¯
+	 * å¦å…‹å‘ä¸Šç§»åŠ¨
 	 */
 	public void up() {
 		this.dto.getTank().setbU(true);
 	}
 
 	/**
-	 * Ì¹¿ËÏòÏÂÒÆ¶¯
+	 * å¦å…‹å‘ä¸‹ç§»åŠ¨
 	 */
 	public void down() {
 		this.dto.getTank().setbD(true);
 	}
 
 	/**
-	 * Ì¹¿ËÏò×óÒÆ¶¯
+	 * å¦å…‹å‘å·¦ç§»åŠ¨
 	 */
 	public void left() {
 		this.dto.getTank().setbL(true);
 	}
 
 	/**
-	 * Ì¹¿ËÏòÓÒÒÆ¶¯
+	 * å¦å…‹å‘å³ç§»åŠ¨
 	 */
 	public void right() {
 		this.dto.getTank().setbR(true);
 	}
 	
 	/**
-	 * Ìí¼ÓÒ»Á¾»úÆ÷ÈËÌ¹¿Ëµ½»úÆ÷ÈËÌ¹¿Ë¼¯ºÏÖĞ
+	 * æ·»åŠ ä¸€è¾†æœºå™¨äººå¦å…‹åˆ°æœºå™¨äººå¦å…‹é›†åˆä¸­
 	 */
 	public void addTank() {
 		this.dto.getTanks().add(new Tank(this.dto,false,false,200,200,Tank.Direction.D));
 	}
 	
 	/**
-	 * ÀäÈ´Ê±¼ä
+	 * å†·å´æ—¶é—´
 	 */
 	public void coolTime() {
 		this.dto.setCoolTime(!this.dto.isCoolTime());
 	}
 	
 	/**
-	 *×÷±×¼ü 
+	 *ä½œå¼Šé”® 
 	 */
 	public void cheat() {
-		//Íæ¼ÒÌ¹¿ËÑªÁ¿Ôö¼Ó20
+		//ç©å®¶å¦å…‹è¡€é‡å¢åŠ 20
 		this.dto.getTank().setExp(this.dto.getTank().getExp()+20);
 	}
 
 	public void pause() {
-		//Ã¿°´Ò»´Î¾ÍÉèÖÃÔİÍ£ÊôĞÔÃ»Ô­À´Ïà·´µÄ
+		//æ¯æŒ‰ä¸€æ¬¡å°±è®¾ç½®æš‚åœå±æ€§æ²¡åŸæ¥ç›¸åçš„
 		this.dto.setPause(!this.dto.isPause());
 	}
 	
 	/**
-	 * Íæ¼ÒÌ¹¿Ë¿ª»ğ·½Ê½Ò»
+	 * ç©å®¶å¦å…‹å¼€ç«æ–¹å¼ä¸€
 	 */
 	public void fire_1() {
 		this.dto.setFireID(0);
@@ -92,7 +92,7 @@ public class GameService {
 	}
 	
 	/**
-	 * Íæ¼ÒÌ¹¿Ë¿ª»ğ·½Ê½¶ş
+	 * ç©å®¶å¦å…‹å¼€ç«æ–¹å¼äºŒ
 	 */
 	public void fire_2() {
 		this.dto.setFireID(1);
@@ -100,7 +100,7 @@ public class GameService {
 	}
 	
 	/**
-	 * Íæ¼ÒÌ¹¿Ë¿ª»ğ·½Ê½Èı
+	 * ç©å®¶å¦å…‹å¼€ç«æ–¹å¼ä¸‰
 	 */
 	public void fire_3() {
 		this.dto.setFireID(2);
@@ -108,48 +108,48 @@ public class GameService {
 	}
 	
 	/**
-	 * Íæ¼ÒÌ¹¿Ë¿ª·½Ê½ËÄ
+	 * ç©å®¶å¦å…‹å¼€æ–¹å¼å››
 	 */
 	public void buryMine() {
 		this.dto.getLandmines().add(new LandMine(this.dto.getTank().getTankX(),this.dto.getTank().getTankY(),this.dto)); 
 	}
 	
 	/**
-	 * ¹Ø±ÕÑª²Û
+	 * å…³é—­è¡€æ§½
 	 */
 	public void closeExp() {
 		this.dto.setCloseExp(!this.dto.isCloseExp());
 	}
 
 	/**
-	 * Ìø¹Ø¿¨
+	 * è·³å…³å¡
 	 */
 	public void jumpOff() {
-		//Éı¼¶
+		//å‡çº§
 		this.dto.setLevel(this.dto.getLevel()+1);
-		//Ë¢ĞÂµØÍ¼
+		//åˆ·æ–°åœ°å›¾
 		this.dto.getMap().removeMap();
 		this.dto.setMap(new Map(dto));
 		this.dto.getMap().creatMap();
-		//Èç¹û´òµ½µÚËÄ¹Ø£¨Boss¹Ø
-		if(dto.getLevel() == 4){
-			//É¾³ıËùÓĞĞ¡±ø
-			for(int i = 0;i<dto.getTanks().size();i++){
+		//å¦‚æœæ‰“åˆ°ç¬¬å››å…³ï¼ˆBosså…³
+		if (dto.getLevel() == 4) {
+			//åˆ é™¤æ‰€æœ‰å°å…µ
+			for (int i = 0; i < dto.getTanks().size(); i++) {
 				dto.getTanks().get(i).setTankDestroy(true);
 			}
-			//Ìí¼Ótank Boss
+			//æ·»åŠ tank Boss
 			dto.getTanks().add(new Tank(dto,false,true,500,660-180,Tank.Direction.U));
 		}
-		//Èç¹û»¹Ã»´òµ½µÚËÄ¹Ø
-		if(dto.getLevel() != 4){
-			//É¾³ıËùÓĞĞ¡±ø
-			for(int i = 0;i<dto.getTanks().size();i++){
+		//å¦‚æœè¿˜æ²¡æ‰“åˆ°ç¬¬å››å…³
+		if (dto.getLevel() != 4) {
+			//åˆ é™¤æ‰€æœ‰å°å…µ
+			for (int i = 0; i < dto.getTanks().size(); i++) {
 				dto.getTanks().get(i).setTankDestroy(true);
 			}
-			//Ìí¼ÓËÄ¸öĞ¡±ø
-		for(int i = 0 ;i<4;i++){
-			dto.getTanks().add(new Tank(dto,false,false,500+i*60,0,Tank.Direction.D));
-		}
+			//æ·»åŠ å››ä¸ªå°å…µ
+			for (int i = 0 ;i<4;i++) {
+				dto.getTanks().add(new Tank(dto,false,false,500+i*60,0,Tank.Direction.D));
+			}
 		}
 	}
 }

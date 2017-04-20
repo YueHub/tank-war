@@ -9,49 +9,49 @@ import com.naruto.tankwar.img.Img;
 public class Wall {
 	
 	/**
-	 * ÓÎÏ·Êı¾İ´«Êä²ã
+	 * æ¸¸æˆæ•°æ®ä¼ è¾“å±‚
 	 */
 	private GameDto dto;
 	
 	/**
-	 * Ç½±ÚÍ¼Æ¬
+	 * å¢™å£å›¾ç‰‡
 	 */
 	private Image img;
 	
 	/**
-	 * Ç½±ÚµÄX×ø±ê
+	 * å¢™å£çš„Xåæ ‡
 	 */
 	private int wallX;
 	
 	/**
-	 * Ç½±ÚµÄY×ø±ê
+	 * å¢™å£çš„Yåæ ‡
 	 */
 	private int wallY;
 	
 	/**
-	 * ±êÊ¶Ç½±ÚµÄIDºÅ
+	 * æ ‡è¯†å¢™å£çš„IDå·
 	 */
 	private int wallID;
 	
 	/**
-	 * Ç½±ÚµÄÑªÁ¿
+	 * å¢™å£çš„è¡€é‡
 	 */
 	private int exp;
 	
 	/**
-	 * Ç½±ÚÍ¼Æ¬µÄ¿í¶È
+	 * å¢™å£å›¾ç‰‡çš„å®½åº¦
 	 */
 	private int WALL_W ;
 	
 	/**
-	 * Ç½±ÚÍ¼Æ¬µÄ¸ß¶È
+	 * å¢™å£å›¾ç‰‡çš„é«˜åº¦
 	 */
 	private  int WALL_H ;
 	
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 */
-	public Wall(Image img,int wallID,int wallX,int wallY,GameDto dto){
+	public Wall(Image img,int wallID,int wallX,int wallY,GameDto dto) {
 		this.img = img;
 		this.wallID = wallID;
 		this.wallX = wallX;
@@ -61,14 +61,13 @@ public class Wall {
 	}
 	
 	/**
-	 * Ç½±Ú³õÊ¼»¯
+	 * å¢™å£åˆå§‹åŒ–
 	 */
-	public void initWall(){
-		if(this.wallID == 0){
+	public void initWall() {
+		if (this.wallID == 0) {
 			WALL_W = 0 ;
 			WALL_H = 0 ;
-		}
-		else{
+		} else {
 			WALL_W = Img.WALL[wallID].getWidth(null);
 			WALL_H = Img.WALL[wallID].getHeight(null);
 			this.exp = 100;
@@ -76,54 +75,54 @@ public class Wall {
 	}
 	
 	/**
-	 * Ç½±ÚµôÑª
+	 * å¢™å£æ‰è¡€
 	 */
-	public void reduceExp(){
-		if(this.getWallID()!=5&&this.getWallID()!=0){
+	public void reduceExp() {
+		if (this.getWallID() != 5 && this.getWallID() != 0) {
 			this.exp -= (10+this.dto.getFireID()*30);
 		}
 	}
 	
 	/**
-	 * µÃµ½ÏÖÔÚÇ½±ÚµÄÑªÁ¿
+	 * å¾—åˆ°ç°åœ¨å¢™å£çš„è¡€é‡
 	 */
 	public int getExp() {
 		return exp;
 	}
 	
 	/**
-	 * ÉèÖÃÇ½±ÚÏÖÔÚµÄÑªÁ¿
+	 * è®¾ç½®å¢™å£ç°åœ¨çš„è¡€é‡
 	 */
 	public void setExp(int exp) {
 		this.exp = exp;
 	}
 	
 	/**
-	 * µÃµ½Ç½±ÚµÄID
+	 * å¾—åˆ°å¢™å£çš„ID
 	 */
 	public int getWallID() {
 		return wallID;
 	}
 	
 	/**
-	 * ÉèÖÃÇ½±ÚµÄID
+	 * è®¾ç½®å¢™å£çš„ID
 	 */
 	public void setWallID(int wallID) {
 		this.wallID = wallID;
 	}
 
 	/**
-	 * Åö×²¼ì²â
+	 * ç¢°æ’æ£€æµ‹
 	 */
-	public Rectangle getRect(){
+	public Rectangle getRect() {
 		return new Rectangle(wallX,wallY,WALL_W,WALL_H);
 	}
 	
 	/**
-	 * »æÖÆÇ½±Ú
+	 * ç»˜åˆ¶å¢™å£
 	 */
-	public void drawWall(Graphics g){
-		if(this.exp<=0){
+	public void drawWall(Graphics g) {
+		if (this.exp <= 0) {
 			this.dto.getWalls().remove(this);
 			return ;
 		}

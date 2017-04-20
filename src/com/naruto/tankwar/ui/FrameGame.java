@@ -3,7 +3,7 @@ package com.naruto.tankwar.ui;
 import javax.swing.JFrame;
 import com.naruto.tankwar.dto.GameDto;
 
-public class FrameGame extends JFrame{
+public class FrameGame extends JFrame {
 	
 	/**
 	 * 
@@ -11,78 +11,78 @@ public class FrameGame extends JFrame{
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * ÓÎÏ·Êı¾İ´«Êä²ã
+	 * æ¸¸æˆæ•°æ®ä¼ è¾“å±‚
 	 */
 	private GameDto dto;
 	
 	/**
-	 * ÓÎÏ·½çÃæ
+	 * æ¸¸æˆç•Œé¢
 	 */
 	private PanelGame panelgame ;
 		
 	/**
-	 *ÓÎÏ·Ïß³Ì 
+	 *æ¸¸æˆçº¿ç¨‹ 
 	 */
 	private Thread gameThread;
 	
 	/**
-	 * ¹¹Ôì·½·¨
+	 * æ„é€ æ–¹æ³•
 	 */
-	public FrameGame(PanelGame panelgame,GameDto dto){
+	public FrameGame(PanelGame panelgame,GameDto dto) {
 		this.dto = dto;
 		this.panelgame = panelgame;
-		//ÉèÖÃ´°¿ÚÃû³Æ
-		this.setTitle("java°æÌ¹¿Ë´óÕ½");
-		//ÉèÖÃ¹Ø±Õ°´Å¥
+		//è®¾ç½®çª—å£åç§°
+		this.setTitle("javaç‰ˆå¦å…‹å¤§æˆ˜");
+		//è®¾ç½®å…³é—­æŒ‰é’®
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//ÉèÖÃ´°¿Ú²»¿É¸Ä±ä´óĞ¡
+		//è®¾ç½®çª—å£ä¸å¯æ”¹å˜å¤§å°
 		this.setResizable(false);
-		//ÉèÖÃ´°¿ÚÎ»ÖÃºÍ´óĞ¡
+		//è®¾ç½®çª—å£ä½ç½®å’Œå¤§å°
 		this.setBounds(50,10,1200+6,660+28);	
-		//ÉèÖÃÄ¬ÈÏPanel£¨¹ØÁªPanel£©
+		//è®¾ç½®é»˜è®¤Panelï¼ˆå…³è”Panelï¼‰
 		this.setContentPane(panelgame);	
-		//ÉèÖÃ´°¿Ú¿É¼û
+		//è®¾ç½®çª—å£å¯è§
 		this.setVisible(true);
-		//µÃµ½panelgameµÄ¿í¶ÈºÍ¸ß¶È
+		//å¾—åˆ°panelgameçš„å®½åº¦å’Œé«˜åº¦
 		GameDto.panelGame_W = panelgame.getWidth();
 		GameDto.panelGame_H = panelgame.getHeight();
 		
-		//¼ÓÔØ»úÆ÷ÈËÌ¹¿Ë
+		//åŠ è½½æœºå™¨äººå¦å…‹
 		this.loadTankComputer();
 		
-		//¼ÓÔØµØÍ¼
+		//åŠ è½½åœ°å›¾
 		this.loadMap();
 		
-		//Æô¶¯Ë¢ĞÂ²»¶Ï»­ÃæµÄÏß³Ì
+		//å¯åŠ¨åˆ·æ–°ä¸æ–­ç”»é¢çš„çº¿ç¨‹
 		this.reFreshThread();
 	}
 	
 	/**
-	 * ¼ÓÔØ»úÆ÷ÈËÌ¹¿Ë
+	 * åŠ è½½æœºå™¨äººå¦å…‹
 	 */
-	public void loadTankComputer(){
-		for(int i = 0;i<4;i++){
+	public void loadTankComputer() {
+		for (int i = 0; i < 4; i++) {
 			this.dto.getTanks().add(new Tank(this.dto,false,false,420+i*60,0,Tank.Direction.D));
 			}
 	}
 		
 	/**
-	 * ¼ÓÔØÓÎÏ·µØÍ¼
+	 * åŠ è½½æ¸¸æˆåœ°å›¾
 	 */
-	public void loadMap(){
-		//´´½¨³öÒ»ÕÅÓÎÏ·µØÍ¼¶ÔÏó
+	public void loadMap() {
+		//åˆ›å»ºå‡ºä¸€å¼ æ¸¸æˆåœ°å›¾å¯¹è±¡
 		this.dto.setMap(new Map(this.dto));
 		this.dto.getMap().creatMap();
 	}
 	
 	/**
-	 * Ë¢ĞÂÏß³Ì
+	 * åˆ·æ–°çº¿ç¨‹
 	 */
-	 public void reFreshThread(){
-		//Æô¶¯ÖÆ¶¯Ë¢ĞÂ»­ÃæµÄÏß³Ì
-		this.gameThread = new Thread(){
-			public void run(){
-				while(true){
+	 public void reFreshThread() {
+		//å¯åŠ¨åˆ¶åŠ¨åˆ·æ–°ç”»é¢çš„çº¿ç¨‹
+		this.gameThread = new Thread() {
+			public void run() {
+				while(true) {
 					try {
 						Thread.sleep(100);
 						panelgame.repaint();
@@ -94,5 +94,4 @@ public class FrameGame extends JFrame{
 		};
 		this.gameThread.start();
 	  }
-	
 }
