@@ -1,7 +1,6 @@
 package cn.lcy.tankwar.dto;
 
 import cn.lcy.tankwar.ui.*;
-import com.naruto.tankwar.ui.*;
 
 import java.util.ArrayList;
 
