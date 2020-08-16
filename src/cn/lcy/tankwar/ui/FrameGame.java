@@ -1,6 +1,6 @@
-package com.naruto.tankwar.ui;
+package cn.lcy.tankwar.ui;
 
-import com.naruto.tankwar.dto.GameDto;
+import cn.lcy.tankwar.dto.GameDto;
 
 import javax.swing.*;
 

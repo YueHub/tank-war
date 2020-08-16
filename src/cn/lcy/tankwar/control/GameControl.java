@@ -1,7 +1,7 @@
-package com.naruto.tankwar.control;
+package cn.lcy.tankwar.control;
 
-import com.naruto.tankwar.service.GameService;
-import com.naruto.tankwar.ui.PanelGame;
+import cn.lcy.tankwar.service.GameService;
+import cn.lcy.tankwar.ui.PanelGame;
 
 public class GameControl {
 

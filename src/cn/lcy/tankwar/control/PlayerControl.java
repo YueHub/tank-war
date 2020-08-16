@@ -1,6 +1,6 @@
-package com.naruto.tankwar.control;
+package cn.lcy.tankwar.control;
 
-import com.naruto.tankwar.dto.GameDto;
+import cn.lcy.tankwar.dto.GameDto;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;

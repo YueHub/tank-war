@@ -1,11 +1,11 @@
-package com.naruto.tankwar.main;
+package cn.lcy.tankwar.main;
 
-import com.naruto.tankwar.control.GameControl;
-import com.naruto.tankwar.control.PlayerControl;
-import com.naruto.tankwar.dto.GameDto;
-import com.naruto.tankwar.service.GameService;
-import com.naruto.tankwar.ui.FrameGame;
-import com.naruto.tankwar.ui.PanelGame;
+import cn.lcy.tankwar.control.GameControl;
+import cn.lcy.tankwar.control.PlayerControl;
+import cn.lcy.tankwar.dto.GameDto;
+import cn.lcy.tankwar.service.GameService;
+import cn.lcy.tankwar.ui.FrameGame;
+import cn.lcy.tankwar.ui.PanelGame;
 
 public class MainGame {
     public static void main(String ass[]) {

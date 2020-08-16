@@ -1,4 +1,4 @@
-package com.naruto.tankwar.img;
+package cn.lcy.tankwar.img;
 
 import javax.swing.*;
 import java.awt.*;
